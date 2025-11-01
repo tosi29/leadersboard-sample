@@ -61,13 +61,13 @@ class CacheManager:
         Get cached result if available and valid
 
         Args:
-            agent_path: Path to the agent file
+            agent_path: Path to the agent directory
             benchmark: Benchmark task definition
 
         Returns:
             Cached result if valid, None otherwise
         """
-        agent_name = agent_path.stem
+        agent_name = agent_path.name
         task_id = benchmark["id"]
         cache_key = self._get_cache_key(agent_name, task_id)
 
@@ -77,8 +77,9 @@ class CacheManager:
 
         cached_entry = self.cache_data["cached_results"][cache_key]
 
-        # Compute current hashes
-        agent_hash = self.compute_file_hash(agent_path)
+        # Compute current hashes - hash the agent.py file
+        agent_file = agent_path / "agent.py"
+        agent_hash = self.compute_file_hash(agent_file)
 
         # For benchmark hash, we use the benchmark definition itself
         # (in case the JSON file content changes)
@@ -103,17 +104,18 @@ class CacheManager:
         Cache a test result
 
         Args:
-            agent_path: Path to the agent file
+            agent_path: Path to the agent directory
             benchmark: Benchmark task definition
             result: Test result to cache
             timestamp: Timestamp of the test run
         """
-        agent_name = agent_path.stem
+        agent_name = agent_path.name
         task_id = benchmark["id"]
         cache_key = self._get_cache_key(agent_name, task_id)
 
-        # Compute hashes
-        agent_hash = self.compute_file_hash(agent_path)
+        # Compute hashes - hash the agent.py file
+        agent_file = agent_path / "agent.py"
+        agent_hash = self.compute_file_hash(agent_file)
         benchmark_str = json.dumps(benchmark, sort_keys=True)
         benchmark_hash = hashlib.sha256(benchmark_str.encode()).hexdigest()
 

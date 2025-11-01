@@ -19,10 +19,11 @@ class BenchmarkRunner:
         self.cache_manager = CacheManager() if use_cache else None
 
     def load_agents(self) -> List[Path]:
-        """Load all agent files from the agents directory"""
-        agents = list(self.agents_dir.glob("*.py"))
+        """Load all agent directories from the agents directory"""
+        # Get all directories in agents/ that contain an agent.py file
+        agents = [d for d in self.agents_dir.iterdir() if d.is_dir() and (d / "agent.py").exists()]
         if not agents:
-            raise ValueError(f"No agent files found in {self.agents_dir}")
+            raise ValueError(f"No agent directories found in {self.agents_dir}")
         return agents
 
     def load_benchmarks(self) -> List[Dict[str, Any]]:
@@ -37,50 +38,113 @@ class BenchmarkRunner:
 
     def run_agent(self, agent_path: Path, query: str, timeout: int = 60) -> Dict[str, Any]:
         """
-        Run an agent with a given query using adk run
+        Run an agent with a given query using InMemoryRunner
 
         Returns:
             Dictionary with 'output', 'execution_time', 'success', and optional 'error'
         """
         start_time = time.time()
 
-        # Get the agent file name (without .py extension)
-        agent_name = agent_path.stem
+        # Get the agent directory name
+        agent_name = agent_path.name
 
         try:
-            # Run the agent using subprocess with adk run
-            # We pass the query via stdin
-            process = subprocess.Popen(
-                ["adk", "run", str(agent_path)],
-                stdin=subprocess.PIPE,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True,
-                cwd=os.getcwd(),
-            )
+            # Import required modules
+            import sys
+            import importlib.util
+            import asyncio
+            from google.adk.runners import InMemoryRunner
+            from google.genai import types
 
-            # Send the query and get the response
-            stdout, stderr = process.communicate(input=query + "\n", timeout=timeout)
+            # Add the agent directory to sys.path temporarily
+            agent_dir_str = str(agent_path.absolute())
+            if agent_dir_str not in sys.path:
+                sys.path.insert(0, agent_dir_str)
 
-            execution_time = time.time() - start_time
+            try:
+                # Load the agent.py file
+                spec = importlib.util.spec_from_file_location("agent_module", agent_path / "agent.py")
+                agent_module = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(agent_module)
 
-            return {
-                "output": stdout.strip(),
-                "stderr": stderr.strip() if stderr else None,
-                "execution_time": execution_time,
-                "success": process.returncode == 0,
-                "returncode": process.returncode,
-            }
+                # Get the root_agent from the module
+                root_agent = agent_module.root_agent
 
-        except subprocess.TimeoutExpired:
-            execution_time = time.time() - start_time
-            process.kill()
-            return {
-                "output": "",
-                "execution_time": execution_time,
-                "success": False,
-                "error": f"Timeout after {timeout} seconds",
-            }
+                # Run the agent using InMemoryRunner
+                async def run_agent_async():
+                    runner = InMemoryRunner(
+                        app_name=agent_name,
+                        agent=root_agent,
+                    )
+
+                    user_id = "test_user"
+                    session_id = f"session_{agent_name}_{int(time.time())}"
+
+                    # Create session
+                    await runner.session_service.create_session(
+                        app_name=agent_name,
+                        user_id=user_id,
+                        session_id=session_id,
+                    )
+
+                    # Run the agent
+                    events = runner.run_async(
+                        user_id=user_id,
+                        session_id=session_id,
+                        new_message=types.Content(parts=[types.Part(text=query)], role="user"),
+                    )
+
+                    # Collect all responses including code execution results
+                    response_parts = []
+                    debug_info = []
+
+                    async for event in events:
+                        # Debug: track event types
+                        event_type = type(event).__name__
+                        debug_info.append(f"Event: {event_type}")
+
+                        if hasattr(event, 'content') and event.content:
+                            if isinstance(event.content, str):
+                                response_parts.append(event.content)
+                                debug_info.append(f"  - Added string content")
+                            elif hasattr(event.content, 'parts'):
+                                for i, part in enumerate(event.content.parts):
+                                    part_type = type(part).__name__
+                                    debug_info.append(f"  - Part {i}: {part_type}")
+
+                                    # Extract text from all part types
+                                    if hasattr(part, 'text') and part.text:
+                                        response_parts.append(part.text)
+                                        debug_info.append(f"    Added text: {part.text[:50]}...")
+                                    # Extract output from code execution results
+                                    elif hasattr(part, 'code_execution_result'):
+                                        result = part.code_execution_result
+                                        if hasattr(result, 'output') and result.output:
+                                            response_parts.append(result.output)
+                                            debug_info.append(f"    Added code result: {result.output[:50]}...")
+
+                    # Print debug info if VERBOSE env var is set
+                    if os.environ.get('VERBOSE'):
+                        print("\n".join(debug_info))
+
+                    return "".join(response_parts)
+
+                # Run the async function
+                response = asyncio.run(run_agent_async())
+
+                execution_time = time.time() - start_time
+
+                return {
+                    "output": response.strip() if response else "",
+                    "stderr": None,
+                    "execution_time": execution_time,
+                    "success": True,
+                    "returncode": 0,
+                }
+            finally:
+                # Remove from sys.path
+                if agent_dir_str in sys.path:
+                    sys.path.remove(agent_dir_str)
 
         except Exception as e:
             execution_time = time.time() - start_time
