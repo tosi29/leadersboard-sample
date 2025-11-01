@@ -23,7 +23,8 @@ AI agent benchmark and leaderboard system.
 ├── src/                 # Source code
 │   ├── runner.py       # Benchmark execution engine
 │   ├── evaluator.py    # Evaluation logic
-│   └── reporter.py     # HTML report generator
+│   ├── reporter.py     # HTML report generator
+│   └── cache_manager.py # Test result caching
 ├── test_files/          # Test files
 │   └── scenario1/
 ├── results/             # Execution results (JSON)
@@ -102,6 +103,46 @@ uv run python src/runner.py
 ```
 
 Results are saved to `results/benchmark_results.json`.
+
+#### Caching for Cost Optimization
+
+The benchmark runner automatically caches test results based on file hashes. This significantly reduces token costs by only re-running tests when agent or benchmark files change.
+
+**How it works:**
+- Each agent file's hash is computed and stored with test results
+- Each benchmark task's hash is also tracked
+- On subsequent runs, cached results are used if files haven't changed
+- Only modified agents are re-tested
+
+**Cache commands:**
+
+```bash
+# Run with cache (default)
+uv run python src/runner.py
+
+# Run without cache (force all tests)
+uv run python src/runner.py --no-cache
+
+# Clear cache before running
+uv run python src/runner.py --clear-cache
+```
+
+**Example output:**
+```
+Found 2 agents and 2 benchmark tasks
+Cache enabled: 4 cached results available
+
+Running agent: agent_v1
+  Task: task_001 - Find setup.py [CACHED]
+  Task: task_002 - Find config file
+    Result: ✓ CORRECT (8.2s)
+
+Cache Statistics:
+  Cache hits: 1/2 (50.0%)
+  New executions: 1/2 (50.0%)
+```
+
+The cache file is stored at `results/benchmark_cache.json`.
 
 ### 4. Generate HTML report
 

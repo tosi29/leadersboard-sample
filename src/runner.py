@@ -6,14 +6,17 @@ import time
 from pathlib import Path
 from typing import Dict, List, Any
 import os
+from cache_manager import CacheManager
 
 
 class BenchmarkRunner:
     """Runs benchmark tasks against AI agents"""
 
-    def __init__(self, agents_dir: str = "agents", benchmarks_dir: str = "benchmarks"):
+    def __init__(self, agents_dir: str = "agents", benchmarks_dir: str = "benchmarks", use_cache: bool = True):
         self.agents_dir = Path(agents_dir)
         self.benchmarks_dir = Path(benchmarks_dir)
+        self.use_cache = use_cache
+        self.cache_manager = CacheManager() if use_cache else None
 
     def load_agents(self) -> List[Path]:
         """Load all agent files from the agents directory"""
@@ -99,11 +102,18 @@ class BenchmarkRunner:
         benchmarks = self.load_benchmarks()
 
         print(f"Found {len(agents)} agents and {len(benchmarks)} benchmark tasks")
+        if self.use_cache:
+            cache_stats = self.cache_manager.get_cache_stats()
+            print(f"Cache enabled: {cache_stats['total_cached']} cached results available")
 
         results = {
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
             "agents": {},
         }
+
+        # Track cache statistics
+        cache_hits = 0
+        cache_misses = 0
 
         for agent_path in agents:
             agent_name = agent_path.stem
@@ -121,44 +131,67 @@ class BenchmarkRunner:
 
             for benchmark in benchmarks:
                 task_id = benchmark["id"]
-                print(f"  Task: {task_id} - {benchmark['name']}")
+                print(f"  Task: {task_id} - {benchmark['name']}", end="")
 
-                # Run the agent
-                run_result = self.run_agent(agent_path, benchmark["query"])
+                # Check cache first
+                cached_result = None
+                if self.use_cache:
+                    cached_result = self.cache_manager.get_cached_result(agent_path, benchmark)
 
-                # Evaluate the result (this will be enhanced by evaluator.py)
-                from evaluator import evaluate_result
-                evaluation = evaluate_result(
-                    run_result["output"],
-                    benchmark["expected_answer"],
-                    run_result["success"]
-                )
+                if cached_result:
+                    # Use cached result
+                    task_result = cached_result
+                    cache_hits += 1
+                    print(f" [CACHED]")
+                    print(f"    Result: {'✓ CORRECT' if task_result['correct'] else '✗ INCORRECT'} ({task_result['execution_time']:.2f}s)")
+                else:
+                    # Run the agent
+                    print()  # New line for non-cached execution
+                    run_result = self.run_agent(agent_path, benchmark["query"])
 
-                # Store the result
-                task_result = {
-                    "task_id": task_id,
-                    "task_name": benchmark["name"],
-                    "correct": evaluation["correct"],
-                    "execution_time": run_result["execution_time"],
-                    "agent_output": run_result["output"][:500],  # Truncate for storage
-                    "expected_answer": benchmark["expected_answer"],
-                    "token_count": None,  # Placeholder for future implementation
-                    "error": run_result.get("error"),
-                }
+                    # Evaluate the result (this will be enhanced by evaluator.py)
+                    from evaluator import evaluate_result
+                    evaluation = evaluate_result(
+                        run_result["output"],
+                        benchmark["expected_answer"],
+                        run_result["success"]
+                    )
+
+                    # Store the result
+                    task_result = {
+                        "task_id": task_id,
+                        "task_name": benchmark["name"],
+                        "correct": evaluation["correct"],
+                        "execution_time": run_result["execution_time"],
+                        "agent_output": run_result["output"][:500],  # Truncate for storage
+                        "expected_answer": benchmark["expected_answer"],
+                        "token_count": None,  # Placeholder for future implementation
+                        "error": run_result.get("error"),
+                    }
+
+                    # Cache the result
+                    if self.use_cache:
+                        self.cache_manager.cache_result(
+                            agent_path,
+                            benchmark,
+                            task_result,
+                            results["timestamp"]
+                        )
+
+                    cache_misses += 1
+                    print(f"    Result: {'✓ CORRECT' if evaluation['correct'] else '✗ INCORRECT'} ({run_result['execution_time']:.2f}s)")
 
                 results["agents"][agent_name]["tasks"][task_id] = task_result
 
                 # Update summary
                 summary = results["agents"][agent_name]["summary"]
                 summary["total"] += 1
-                if run_result.get("error"):
+                if task_result.get("error"):
                     summary["errors"] += 1
-                elif evaluation["correct"]:
+                elif task_result["correct"]:
                     summary["correct"] += 1
                 else:
                     summary["incorrect"] += 1
-
-                print(f"    Result: {'✓ CORRECT' if evaluation['correct'] else '✗ INCORRECT'} ({run_result['execution_time']:.2f}s)")
 
         # Save results to file
         output_path = Path(output_file)
@@ -169,12 +202,42 @@ class BenchmarkRunner:
 
         print(f"\nResults saved to {output_file}")
 
+        # Print cache statistics
+        if self.use_cache:
+            total_tests = cache_hits + cache_misses
+            print(f"\nCache Statistics:")
+            print(f"  Cache hits: {cache_hits}/{total_tests} ({cache_hits/total_tests*100:.1f}%)")
+            print(f"  New executions: {cache_misses}/{total_tests} ({cache_misses/total_tests*100:.1f}%)")
+
         return results
 
 
 def main():
     """Main entry point for the benchmark runner"""
-    runner = BenchmarkRunner()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Run AI agent benchmarks")
+    parser.add_argument(
+        "--no-cache",
+        action="store_true",
+        help="Disable caching and run all tests (default: use cache)"
+    )
+    parser.add_argument(
+        "--clear-cache",
+        action="store_true",
+        help="Clear cache before running tests"
+    )
+    args = parser.parse_args()
+
+    use_cache = not args.no_cache
+
+    runner = BenchmarkRunner(use_cache=use_cache)
+
+    # Clear cache if requested
+    if args.clear_cache and use_cache:
+        print("Clearing cache...")
+        runner.cache_manager.clear_cache()
+
     results = runner.run_all()
 
     # Print summary
