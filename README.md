@@ -72,7 +72,7 @@ Create a new agent file in the `agents/` directory.
 from google.adk.agents.llm_agent import Agent
 
 root_agent = Agent(
-    model='gemini-2.0-flash-exp',
+    model='gemini-2.5-flash',
     name='my_agent',
     description="Agent description",
     instruction="Agent instructions",

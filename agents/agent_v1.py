@@ -4,7 +4,7 @@ from google.adk.agents.llm_agent import Agent
 
 # Define a simple file search agent
 root_agent = Agent(
-    model='gemini-2.0-flash-exp',
+    model='gemini-2.5-flash',
     name='agent_v1',
     description="A file search agent that finds specific files in a directory",
     instruction="""You are a file search assistant.
