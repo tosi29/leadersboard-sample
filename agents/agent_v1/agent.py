@@ -1,41 +1,40 @@
 """AI Agent v1 - File search agent using Google ADK"""
 
 import os
+import sys
+from pathlib import Path
 from google.adk.agents.llm_agent import Agent
-from google.adk.code_executors import BuiltInCodeExecutor
+
+# Add parent directory to path to import custom tools
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from file_search_tools import find_file, find_files_by_pattern, list_directory
 
 # Ensure GOOGLE_API_KEY is set
 if "GOOGLE_API_KEY" not in os.environ:
     raise ValueError("GOOGLE_API_KEY environment variable is not set")
 
-# Define a file search agent with code execution capabilities
+# Define a file search agent with custom tools
 root_agent = Agent(
-    model='gemini-2.0-flash',  # Use gemini-2.0-flash for code execution support
+    model='gemini-2.0-flash',
     name='agent_v1',
     description="A file search agent that finds specific files in a directory",
-    instruction="""You are a file search assistant with code execution capabilities.
-    When given a task to find a file, you can write and execute Python code to search the filesystem.
+    instruction="""You are a file search assistant with access to file search tools.
 
-    IMPORTANT: Before searching, always check your current working directory with os.getcwd().
-    Use absolute paths by combining os.getcwd() with relative paths, or use pathlib.Path().resolve().
+    Available tools:
+    - find_file(filename, search_directory): Find a specific file by name
+    - find_files_by_pattern(pattern, search_directory): Find files matching a glob pattern
+    - list_directory(directory): List contents of a directory
 
-    Use Python code to:
-    - Check current directory: import os; print(os.getcwd())
-    - Use absolute paths: os.path.join(os.getcwd(), 'relative/path')
-    - List directories with os.listdir() or pathlib.Path().glob()
-    - Use os.walk() for recursive directory traversal
-    - Find files matching specific patterns
-
-    Handle errors gracefully:
-    - Check if directories exist with os.path.exists() before accessing
-    - Use try-except blocks to handle FileNotFoundError
+    When given a task to find a file:
+    1. Use the appropriate tool to search for the file
+    2. The tools will return the relative path from the current working directory
 
     Always return your final answer in the format:
-    FOUND: <full_path_to_file>
+    FOUND: <path_to_file>
 
     For example: FOUND: test_files/scenario1/setup.py
 
     If you cannot find the file, return: FOUND: None
     """,
-    code_executor=BuiltInCodeExecutor(),
+    tools=[find_file, find_files_by_pattern, list_directory],
 )
