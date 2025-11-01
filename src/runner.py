@@ -94,16 +94,38 @@ class BenchmarkRunner:
                         new_message=types.Content(parts=[types.Part(text=query)], role="user"),
                     )
 
-                    # Collect all responses
+                    # Collect all responses including code execution results
                     response_parts = []
+                    debug_info = []
+
                     async for event in events:
+                        # Debug: track event types
+                        event_type = type(event).__name__
+                        debug_info.append(f"Event: {event_type}")
+
                         if hasattr(event, 'content') and event.content:
                             if isinstance(event.content, str):
                                 response_parts.append(event.content)
+                                debug_info.append(f"  - Added string content")
                             elif hasattr(event.content, 'parts'):
-                                for part in event.content.parts:
-                                    if hasattr(part, 'text'):
+                                for i, part in enumerate(event.content.parts):
+                                    part_type = type(part).__name__
+                                    debug_info.append(f"  - Part {i}: {part_type}")
+
+                                    # Extract text from all part types
+                                    if hasattr(part, 'text') and part.text:
                                         response_parts.append(part.text)
+                                        debug_info.append(f"    Added text: {part.text[:50]}...")
+                                    # Extract output from code execution results
+                                    elif hasattr(part, 'code_execution_result'):
+                                        result = part.code_execution_result
+                                        if hasattr(result, 'output') and result.output:
+                                            response_parts.append(result.output)
+                                            debug_info.append(f"    Added code result: {result.output[:50]}...")
+
+                    # Print debug info if VERBOSE env var is set
+                    if os.environ.get('VERBOSE'):
+                        print("\n".join(debug_info))
 
                     return "".join(response_parts)
 
