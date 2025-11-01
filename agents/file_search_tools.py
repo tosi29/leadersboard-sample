@@ -8,13 +8,13 @@ from pathlib import Path
 from typing import Optional, List
 
 
-def find_file(filename: str, search_directory: str = ".") -> Optional[str]:
+def find_file(filename: str, search_directory: str) -> Optional[str]:
     """
     Search for a file by name in a directory and its subdirectories.
 
     Args:
         filename: The name of the file to find (e.g., 'setup.py')
-        search_directory: The directory to search in (default: current directory)
+        search_directory: The directory to search in
 
     Returns:
         The relative path to the file if found, None otherwise
@@ -44,13 +44,13 @@ def find_file(filename: str, search_directory: str = ".") -> Optional[str]:
     return None
 
 
-def find_files_by_pattern(pattern: str, search_directory: str = ".") -> List[str]:
+def find_files_by_pattern(pattern: str, search_directory: str) -> List[str]:
     """
     Search for files matching a glob pattern.
 
     Args:
         pattern: Glob pattern to match (e.g., '*.yaml', 'config.*')
-        search_directory: The directory to search in (default: current directory)
+        search_directory: The directory to search in
 
     Returns:
         List of relative paths to matching files
@@ -77,12 +77,12 @@ def find_files_by_pattern(pattern: str, search_directory: str = ".") -> List[str
     return matches
 
 
-def list_directory(directory: str = ".") -> List[str]:
+def list_directory(directory: str) -> List[str]:
     """
     List contents of a directory.
 
     Args:
-        directory: The directory to list (default: current directory)
+        directory: The directory to list
 
     Returns:
         List of file and directory names in the directory
