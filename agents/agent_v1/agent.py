@@ -15,7 +15,7 @@ if "GOOGLE_API_KEY" not in os.environ:
 
 # Define a file search agent with custom tools
 root_agent = Agent(
-    model='gemini-2.0-flash',
+    model='gemini-2.5-flash',
     name='agent_v1',
     description="A file search agent that finds specific files in a directory",
     instruction="""You are a file search assistant with access to file search tools.

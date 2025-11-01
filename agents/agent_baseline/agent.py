@@ -15,7 +15,7 @@ if "GOOGLE_API_KEY" not in os.environ:
 
 # Define a baseline agent with file search tools
 root_agent = Agent(
-    model='gemini-2.0-flash',
+    model='gemini-2.5-flash',
     name='agent_baseline',
     description="A baseline file search agent with file search capability",
     instruction="""Find the requested file and return its path.
