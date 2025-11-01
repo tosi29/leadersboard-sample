@@ -1,0 +1,65 @@
+{
+  "timestamp": "2025-11-02 00:43:00",
+  "agents": {
+    "agent_v1": {
+      "tasks": {
+        "task_001": {
+          "task_id": "task_001",
+          "task_name": "Find setup.py",
+          "correct": true,
+          "execution_time": 4.370923757553101,
+          "agent_output": "FOUND: test_files/scenario1/setup.py",
+          "expected_answer": "test_files/scenario1/setup.py",
+          "token_count": null,
+          "error": null
+        },
+        "task_002": {
+          "task_id": "task_002",
+          "task_name": "Find config file",
+          "correct": true,
+          "execution_time": 2.147700786590576,
+          "agent_output": "FOUND: test_files/scenario1/config/config.yaml",
+          "expected_answer": "test_files/scenario1/config/config.yaml",
+          "token_count": null,
+          "error": null
+        }
+      },
+      "summary": {
+        "total": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "errors": 0
+      }
+    },
+    "agent_baseline": {
+      "tasks": {
+        "task_001": {
+          "task_id": "task_001",
+          "task_name": "Find setup.py",
+          "correct": true,
+          "execution_time": 1.8921549320220947,
+          "agent_output": "FOUND: test_files/scenario1/setup.py",
+          "expected_answer": "test_files/scenario1/setup.py",
+          "token_count": null,
+          "error": null
+        },
+        "task_002": {
+          "task_id": "task_002",
+          "task_name": "Find config file",
+          "correct": true,
+          "execution_time": 2.0734927654266357,
+          "agent_output": "FOUND: test_files/scenario1/config/config.yaml",
+          "expected_answer": "test_files/scenario1/config/config.yaml",
+          "token_count": null,
+          "error": null
+        }
+      },
+      "summary": {
+        "total": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "errors": 0
+      }
+    }
+  }
+}

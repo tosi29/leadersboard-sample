@@ -1,0 +1,73 @@
+{
+  "cache_version": "1.0",
+  "cached_results": {
+    "agent_v1__task_001": {
+      "agent_hash": "4bcc73aef868054ffe748c355995dbc14ffbaf11614f6411331e64f2ee185b03",
+      "benchmark_hash": "f1b3510d876fddd32e12a8dc45675fd40439881fbea419f5db652d6d54e85236",
+      "result": {
+        "task_id": "task_001",
+        "task_name": "Find setup.py",
+        "correct": false,
+        "execution_time": 3.249866008758545,
+        "agent_output": "",
+        "expected_answer": "test_files/scenario1/setup.py",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-01 13:09:22",
+      "agent_file": "agents/agent_v1.py",
+      "task_name": "Find setup.py"
+    },
+    "agent_v1__task_002": {
+      "agent_hash": "4bcc73aef868054ffe748c355995dbc14ffbaf11614f6411331e64f2ee185b03",
+      "benchmark_hash": "df62bef75a9d6eda8b2c33f0412be1cd4acfa543197ffc576bad3175ec64f88d",
+      "result": {
+        "task_id": "task_002",
+        "task_name": "Find config file",
+        "correct": false,
+        "execution_time": 2.989546060562134,
+        "agent_output": "",
+        "expected_answer": "test_files/scenario1/config/config.yaml",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-01 13:09:22",
+      "agent_file": "agents/agent_v1.py",
+      "task_name": "Find config file"
+    },
+    "agent_baseline__task_001": {
+      "agent_hash": "73219a85e8bba3cedf7d0b35bede58672d3493784f5c4a3531c7e5a1f7dd4e99",
+      "benchmark_hash": "f1b3510d876fddd32e12a8dc45675fd40439881fbea419f5db652d6d54e85236",
+      "result": {
+        "task_id": "task_001",
+        "task_name": "Find setup.py",
+        "correct": false,
+        "execution_time": 2.979457139968872,
+        "agent_output": "",
+        "expected_answer": "test_files/scenario1/setup.py",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-01 13:09:22",
+      "agent_file": "agents/agent_baseline.py",
+      "task_name": "Find setup.py"
+    },
+    "agent_baseline__task_002": {
+      "agent_hash": "73219a85e8bba3cedf7d0b35bede58672d3493784f5c4a3531c7e5a1f7dd4e99",
+      "benchmark_hash": "df62bef75a9d6eda8b2c33f0412be1cd4acfa543197ffc576bad3175ec64f88d",
+      "result": {
+        "task_id": "task_002",
+        "task_name": "Find config file",
+        "correct": false,
+        "execution_time": 2.9939041137695312,
+        "agent_output": "",
+        "expected_answer": "test_files/scenario1/config/config.yaml",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-01 13:09:22",
+      "agent_file": "agents/agent_baseline.py",
+      "task_name": "Find config file"
+    }
+  }
+}
