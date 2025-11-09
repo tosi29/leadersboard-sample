@@ -1,142 +1,6 @@
 {
   "cache_version": "1.0",
   "cached_results": {
-    "agent_v1__task_001": {
-      "agent_hash": "4374f97015d292961f18cc63e457f3185382a51a78f42130ad17e7b1f3e37243",
-      "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
-      "result": {
-        "task_id": "task_001",
-        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
-        "correct": true,
-        "execution_time": 3.5163769721984863,
-        "agent_output": "26",
-        "expected_answer": "26",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:20:30",
-      "agent_file": "agents/agent_v1",
-      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
-    },
-    "agent_v1__task_002": {
-      "agent_hash": "4374f97015d292961f18cc63e457f3185382a51a78f42130ad17e7b1f3e37243",
-      "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
-      "result": {
-        "task_id": "task_002",
-        "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
-        "correct": true,
-        "execution_time": 2.3480641841888428,
-        "agent_output": "149462580267\n149462580267",
-        "expected_answer": "149462580267",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:20:30",
-      "agent_file": "agents/agent_v1",
-      "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
-    },
-    "agent_v1__task_003": {
-      "agent_hash": "4374f97015d292961f18cc63e457f3185382a51a78f42130ad17e7b1f3e37243",
-      "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
-      "result": {
-        "task_id": "task_003",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
-        "correct": true,
-        "execution_time": 5.478664875030518,
-        "agent_output": "23,43\n989\u3092\u56e0\u6570\u5206\u89e3\u3059\u308b\u3068\u300123\u306843\u306b\u306a\u308a\u307e\u3059\u3002\n\n\u56de\u7b54\uff1a23,43",
-        "expected_answer": "23,43",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:20:30",
-      "agent_file": "agents/agent_v1",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
-    },
-    "agent_baseline__task_001": {
-      "agent_hash": "0840199dcf7a8b9b1562f0a33b50c643212053b0b6ddf56fbc2422881aea606a",
-      "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
-      "result": {
-        "task_id": "task_001",
-        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
-        "correct": true,
-        "execution_time": 1.1186480522155762,
-        "agent_output": "26",
-        "expected_answer": "26",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:20:30",
-      "agent_file": "agents/agent_baseline",
-      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
-    },
-    "agent_baseline__task_002": {
-      "agent_hash": "0840199dcf7a8b9b1562f0a33b50c643212053b0b6ddf56fbc2422881aea606a",
-      "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
-      "result": {
-        "task_id": "task_002",
-        "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
-        "correct": false,
-        "execution_time": 1.379547119140625,
-        "agent_output": "149466580467",
-        "expected_answer": "149462580267",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:20:30",
-      "agent_file": "agents/agent_baseline",
-      "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
-    },
-    "agent_baseline__task_003": {
-      "agent_hash": "0840199dcf7a8b9b1562f0a33b50c643212053b0b6ddf56fbc2422881aea606a",
-      "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
-      "result": {
-        "task_id": "task_003",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
-        "correct": true,
-        "execution_time": 3.328594923019409,
-        "agent_output": "989\u3092\u56e0\u6570\u5206\u89e3\u3059\u308b\u3068\u3001\u4ee5\u4e0b\u306e\u3088\u3046\u306b\u306a\u308a\u307e\u3059\u3002\n\n23,43",
-        "expected_answer": "23,43",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:20:30",
-      "agent_file": "agents/agent_baseline",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
-    },
-    "agent_v1__task_004": {
-      "agent_hash": "4374f97015d292961f18cc63e457f3185382a51a78f42130ad17e7b1f3e37243",
-      "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
-      "result": {
-        "task_id": "task_004",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
-        "correct": true,
-        "execution_time": 7.433089017868042,
-        "agent_output": "15077,32117\n484228009\u3092\u56e0\u6570\u5206\u89e3\u3059\u308b\u3068\u300115077,32117 \u3068\u306a\u308a\u307e\u3059\u3002",
-        "expected_answer": "15077,32117",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:20:30",
-      "agent_file": "agents/agent_v1",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
-    },
-    "agent_baseline__task_004": {
-      "agent_hash": "0840199dcf7a8b9b1562f0a33b50c643212053b0b6ddf56fbc2422881aea606a",
-      "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
-      "result": {
-        "task_id": "task_004",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
-        "correct": false,
-        "execution_time": 50.90519404411316,
-        "agent_output": "484228009 \u306f\u7d20\u6570\u3067\u3059\u3002\n\n\u3057\u305f\u304c\u3063\u3066\u3001\u56e0\u6570\u5206\u89e3\u306e\u7d50\u679c\u306f\u4ee5\u4e0b\u306e\u901a\u308a\u3067\u3059\u3002\n\n484228009",
-        "expected_answer": "15077,32117",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:20:30",
-      "agent_file": "agents/agent_baseline",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
-    },
     "with_code_executor__task_001": {
       "agent_hash": "01abdf29b1687999935d6cc5bf98a0b00ace7792a7eb3a4c2d44fcde1ca6217d",
       "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
@@ -144,13 +8,13 @@
         "task_id": "task_001",
         "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
         "correct": true,
-        "execution_time": 3.7989649772644043,
-        "agent_output": "26\n26",
+        "execution_time": 3.595881938934326,
+        "agent_output": "11+15\u306f26\u3067\u3059\u3002",
         "expected_answer": "26",
         "token_count": null,
         "error": null
       },
-      "timestamp": "2025-11-09 19:36:24",
+      "timestamp": "2025-11-09 19:45:28",
       "agent_file": "agents/with_code_executor",
       "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
     },
@@ -160,14 +24,14 @@
       "result": {
         "task_id": "task_002",
         "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
-        "correct": false,
-        "execution_time": 0.9187259674072266,
-        "agent_output": "1494533110739",
+        "correct": true,
+        "execution_time": 1.6368629932403564,
+        "agent_output": "149462580267\n149462580267",
         "expected_answer": "149462580267",
         "token_count": null,
         "error": null
       },
-      "timestamp": "2025-11-09 19:36:24",
+      "timestamp": "2025-11-09 19:45:28",
       "agent_file": "agents/with_code_executor",
       "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
     },
@@ -177,14 +41,14 @@
       "result": {
         "task_id": "task_003",
         "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
-        "correct": true,
-        "execution_time": 5.9340949058532715,
-        "agent_output": "sorted_factors=[23, 43]\n23,43",
+        "correct": false,
+        "execution_time": 1.2341158390045166,
+        "agent_output": "```python\nimport sympy\n\n# 989\u3092\u56e0\u6570\u5206\u89e3\u3057\u307e\u3059\u3002\nfactors = sympy.factorint(989)\n\n# \u56e0\u6570\u3092\u6607\u9806\u306b\u30bd\u30fc\u30c8\u3057\u307e\u3059\u3002\nsorted_factors = sorted(factors.keys())\n\n# \u7d50\u679c\u3092\u30b3\u30f3\u30de\u533a\u5207\u308a\u3067\u8868\u793a\u3057\u307e\u3059\u3002\nprint(f'{sorted_factors=}')\n```",
         "expected_answer": "23,43",
         "token_count": null,
         "error": null
       },
-      "timestamp": "2025-11-09 19:36:24",
+      "timestamp": "2025-11-09 19:45:28",
       "agent_file": "agents/with_code_executor",
       "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
     },
@@ -194,219 +58,15 @@
       "result": {
         "task_id": "task_004",
         "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
-        "correct": false,
-        "execution_time": 1.6228387355804443,
-        "agent_output": "`tool_code\nimport sympy\n\nn = 484228009\nfactors = sympy.factorint(n)\nsorted_factors = sorted([p**k for p, k in factors.items() for _ in range(k)])\nprint(f'{sorted_factors=}')",
+        "correct": true,
+        "execution_time": 5.109898090362549,
+        "agent_output": "result_list=[15077, 32117]\n15077,32117",
         "expected_answer": "15077,32117",
         "token_count": null,
         "error": null
       },
-      "timestamp": "2025-11-09 19:36:24",
+      "timestamp": "2025-11-09 19:45:28",
       "agent_file": "agents/with_code_executor",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
-    },
-    "baseline__task_001": {
-      "agent_hash": "689c3e1b5a33d56d5914349ac3116e4f61515a5ae3ef50e494288484d06ac19d",
-      "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
-      "result": {
-        "task_id": "task_001",
-        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
-        "correct": true,
-        "execution_time": 1.040632963180542,
-        "agent_output": "26",
-        "expected_answer": "26",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:36:24",
-      "agent_file": "agents/baseline",
-      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
-    },
-    "baseline__task_002": {
-      "agent_hash": "689c3e1b5a33d56d5914349ac3116e4f61515a5ae3ef50e494288484d06ac19d",
-      "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
-      "result": {
-        "task_id": "task_002",
-        "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
-        "correct": false,
-        "execution_time": 1.0032823085784912,
-        "agent_output": "149470459476",
-        "expected_answer": "149462580267",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:36:24",
-      "agent_file": "agents/baseline",
-      "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
-    },
-    "baseline__task_003": {
-      "agent_hash": "689c3e1b5a33d56d5914349ac3116e4f61515a5ae3ef50e494288484d06ac19d",
-      "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
-      "result": {
-        "task_id": "task_003",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
-        "correct": false,
-        "execution_time": 0.9307470321655273,
-        "agent_output": "2, 13, 37",
-        "expected_answer": "23,43",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:36:24",
-      "agent_file": "agents/baseline",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
-    },
-    "baseline__task_004": {
-      "agent_hash": "689c3e1b5a33d56d5914349ac3116e4f61515a5ae3ef50e494288484d06ac19d",
-      "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
-      "result": {
-        "task_id": "task_004",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
-        "correct": false,
-        "execution_time": 1.1368448734283447,
-        "agent_output": "2, 2, 11, 13, 71, 101",
-        "expected_answer": "15077,32117",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:36:24",
-      "agent_file": "agents/baseline",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
-    },
-    "with_google_search__task_001": {
-      "agent_hash": "7c74b92cb4263f561919941fa34cd623e58cd1ed3970442e8a3931128c2b8ed4",
-      "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
-      "result": {
-        "task_id": "task_001",
-        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
-        "correct": true,
-        "execution_time": 3.3537049293518066,
-        "agent_output": "26",
-        "expected_answer": "26",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:42:14",
-      "agent_file": "agents/with_google_search",
-      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
-    },
-    "with_google_search__task_002": {
-      "agent_hash": "7c74b92cb4263f561919941fa34cd623e58cd1ed3970442e8a3931128c2b8ed4",
-      "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
-      "result": {
-        "task_id": "task_002",
-        "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
-        "correct": false,
-        "execution_time": 2.0454041957855225,
-        "agent_output": "1213929 * 123123 = 149499435167",
-        "expected_answer": "149462580267",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:42:14",
-      "agent_file": "agents/with_google_search",
-      "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
-    },
-    "with_google_search__task_003": {
-      "agent_hash": "7c74b92cb4263f561919941fa34cd623e58cd1ed3970442e8a3931128c2b8ed4",
-      "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
-      "result": {
-        "task_id": "task_003",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
-        "correct": false,
-        "execution_time": 2.3515431880950928,
-        "agent_output": "989\u306e\u7d20\u56e0\u6570\u5206\u89e3\u306f23 \u00d7 43\u3067\u3059\u3002\u3057\u305f\u304c\u3063\u3066\u3001989\u3092\u5c0f\u3055\u3044\u9806\u306b\u30b3\u30f3\u30de\u533a\u5207\u308a\u3067\u56e0\u6570\u5206\u89e3\u3059\u308b\u3068\u300123, 43\u3068\u306a\u308a\u307e\u3059\u3002",
-        "expected_answer": "23,43",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:42:14",
-      "agent_file": "agents/with_google_search",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
-    },
-    "with_google_search__task_004": {
-      "agent_hash": "7c74b92cb4263f561919941fa34cd623e58cd1ed3970442e8a3931128c2b8ed4",
-      "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
-      "result": {
-        "task_id": "task_004",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
-        "correct": false,
-        "execution_time": 1.9554932117462158,
-        "agent_output": "484228009\u3092\u7d20\u56e0\u6570\u5206\u89e3\u3059\u308b\u3068\u3001\u4ee5\u4e0b\u306e\u3088\u3046\u306b\u306a\u308a\u307e\u3059\u3002\n\n3, 13, 113, 1038797\n\n\u3053\u308c\u306f\u3001484228009 = 3 \u00d7 13 \u00d7 113 \u00d7 1038797 \u3068\u8868\u3055\u308c\u307e\u3059\u3002",
-        "expected_answer": "15077,32117",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:42:14",
-      "agent_file": "agents/with_google_search",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
-    },
-    "gemini_2_5_pro__task_001": {
-      "agent_hash": "3a5afa9749a98a3e810e357dbd2cdeed9bf9126c4cc940870661f797d30ee6a9",
-      "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
-      "result": {
-        "task_id": "task_001",
-        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
-        "correct": true,
-        "execution_time": 3.4432568550109863,
-        "agent_output": "26",
-        "expected_answer": "26",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:30:43",
-      "agent_file": "agents/gemini_2_5_pro",
-      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
-    },
-    "gemini_2_5_pro__task_002": {
-      "agent_hash": "3a5afa9749a98a3e810e357dbd2cdeed9bf9126c4cc940870661f797d30ee6a9",
-      "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
-      "result": {
-        "task_id": "task_002",
-        "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
-        "correct": false,
-        "execution_time": 4.263758897781372,
-        "agent_output": "149463564567",
-        "expected_answer": "149462580267",
-        "token_count": null,
-        "error": null
-      },
-      "timestamp": "2025-11-09 19:30:43",
-      "agent_file": "agents/gemini_2_5_pro",
-      "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
-    },
-    "gemini_2_5_pro__task_003": {
-      "agent_hash": "3a5afa9749a98a3e810e357dbd2cdeed9bf9126c4cc940870661f797d30ee6a9",
-      "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
-      "result": {
-        "task_id": "task_003",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
-        "correct": false,
-        "execution_time": 0.5363681316375732,
-        "agent_output": "",
-        "expected_answer": "23,43",
-        "token_count": null,
-        "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}"
-      },
-      "timestamp": "2025-11-09 19:30:43",
-      "agent_file": "agents/gemini_2_5_pro",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
-    },
-    "gemini_2_5_pro__task_004": {
-      "agent_hash": "3a5afa9749a98a3e810e357dbd2cdeed9bf9126c4cc940870661f797d30ee6a9",
-      "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
-      "result": {
-        "task_id": "task_004",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
-        "correct": false,
-        "execution_time": 0.27959179878234863,
-        "agent_output": "",
-        "expected_answer": "15077,32117",
-        "token_count": null,
-        "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 2\\nPlease retry in 24.84045501s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '2'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '24s'}]}}"
-      },
-      "timestamp": "2025-11-09 19:30:43",
-      "agent_file": "agents/gemini_2_5_pro",
       "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
     },
     "gemini_2_5_flash__task_001": {
@@ -416,13 +76,13 @@
         "task_id": "task_001",
         "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
         "correct": true,
-        "execution_time": 3.70190691947937,
+        "execution_time": 1.5330712795257568,
         "agent_output": "26",
         "expected_answer": "26",
         "token_count": null,
         "error": null
       },
-      "timestamp": "2025-11-09 19:39:13",
+      "timestamp": "2025-11-09 19:45:28",
       "agent_file": "agents/gemini_2_5_flash",
       "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
     },
@@ -433,13 +93,13 @@
         "task_id": "task_002",
         "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
         "correct": false,
-        "execution_time": 1.6310369968414307,
-        "agent_output": "149463994787",
+        "execution_time": 1.5360469818115234,
+        "agent_output": "149457688087",
         "expected_answer": "149462580267",
         "token_count": null,
         "error": null
       },
-      "timestamp": "2025-11-09 19:39:13",
+      "timestamp": "2025-11-09 19:45:28",
       "agent_file": "agents/gemini_2_5_flash",
       "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
     },
@@ -450,13 +110,13 @@
         "task_id": "task_003",
         "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
         "correct": true,
-        "execution_time": 2.9682259559631348,
+        "execution_time": 3.274935245513916,
         "agent_output": "23,43",
         "expected_answer": "23,43",
         "token_count": null,
         "error": null
       },
-      "timestamp": "2025-11-09 19:39:13",
+      "timestamp": "2025-11-09 19:45:28",
       "agent_file": "agents/gemini_2_5_flash",
       "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
     },
@@ -467,14 +127,150 @@
         "task_id": "task_004",
         "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
         "correct": false,
-        "execution_time": 59.29835510253906,
-        "agent_output": "484228009\u306f\u7d20\u6570\u3067\u3059\u3002\u3057\u305f\u304c\u3063\u3066\u3001\u305d\u306e\u56e0\u6570\u306f\u81ea\u5206\u81ea\u8eab\u306e\u307f\u3067\u3059\u3002\n\n\u56de\u7b54\u306f\u6570\u5b57\u306e\u5c0f\u3055\u3044\u9806\u306b\u30b3\u30f3\u30de\u533a\u5207\u308a\u3067\u3068\u306e\u3053\u3068\u3067\u3059\u306e\u3067\u3001\u4ee5\u4e0b\u306e\u3088\u3046\u306b\u306a\u308a\u307e\u3059\u3002\n\n484228009",
+        "execution_time": 30.337674617767334,
+        "agent_output": "484228009\u3092\u7d20\u56e0\u6570\u5206\u89e3\u3059\u308b\u3068\u3001\u4ee5\u4e0b\u306e\u3088\u3046\u306b\u306a\u308a\u307e\u3059\u3002\n\n$484228009 = 69587 \\times 69587$\n\n\u3053\u3053\u3067\u3001$69587$ \u306f\u7d20\u6570\u3067\u3059\u3002\n\n\u3057\u305f\u304c\u3063\u3066\u3001\u5c0f\u3055\u3044\u9806\u306b\u30b3\u30f3\u30de\u533a\u5207\u308a\u3067\u56de\u7b54\u3059\u308b\u3068\u3001\u6b21\u306e\u3088\u3046\u306b\u306a\u308a\u307e\u3059\u3002\n\n69587, 69587",
         "expected_answer": "15077,32117",
         "token_count": null,
         "error": null
       },
-      "timestamp": "2025-11-09 19:39:13",
+      "timestamp": "2025-11-09 19:45:28",
       "agent_file": "agents/gemini_2_5_flash",
+      "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
+    },
+    "baseline__task_001": {
+      "agent_hash": "689c3e1b5a33d56d5914349ac3116e4f61515a5ae3ef50e494288484d06ac19d",
+      "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
+      "result": {
+        "task_id": "task_001",
+        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
+        "correct": true,
+        "execution_time": 1.2997477054595947,
+        "agent_output": "26",
+        "expected_answer": "26",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-09 19:45:28",
+      "agent_file": "agents/baseline",
+      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
+    },
+    "baseline__task_002": {
+      "agent_hash": "689c3e1b5a33d56d5914349ac3116e4f61515a5ae3ef50e494288484d06ac19d",
+      "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
+      "result": {
+        "task_id": "task_002",
+        "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
+        "correct": false,
+        "execution_time": 1.1527371406555176,
+        "agent_output": "149503554776",
+        "expected_answer": "149462580267",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-09 19:45:28",
+      "agent_file": "agents/baseline",
+      "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
+    },
+    "baseline__task_003": {
+      "agent_hash": "689c3e1b5a33d56d5914349ac3116e4f61515a5ae3ef50e494288484d06ac19d",
+      "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
+      "result": {
+        "task_id": "task_003",
+        "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
+        "correct": false,
+        "execution_time": 0.9913849830627441,
+        "agent_output": "2, 3, 7, 47",
+        "expected_answer": "23,43",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-09 19:45:28",
+      "agent_file": "agents/baseline",
+      "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
+    },
+    "baseline__task_004": {
+      "agent_hash": "689c3e1b5a33d56d5914349ac3116e4f61515a5ae3ef50e494288484d06ac19d",
+      "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
+      "result": {
+        "task_id": "task_004",
+        "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
+        "correct": false,
+        "execution_time": 1.5555319786071777,
+        "agent_output": "484228009\u3092\u7d20\u56e0\u6570\u5206\u89e3\u3057\u305f\u7d50\u679c\u306f\u4ee5\u4e0b\u306e\u901a\u308a\u3067\u3059\u3002\n\n13, 37248308.38461538...\n\n\u7533\u3057\u8a33\u3042\u308a\u307e\u305b\u3093\u304c\u3001484228009 \u306f\u7d20\u6570\u3067\u306f\u3042\u308a\u307e\u305b\u3093\u304c\u3001\u3059\u3079\u3066\u306e\u7d20\u56e0\u6570\u3092\u898b\u3064\u3051\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f\u3002",
+        "expected_answer": "15077,32117",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-09 19:45:28",
+      "agent_file": "agents/baseline",
+      "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
+    },
+    "with_google_search__task_001": {
+      "agent_hash": "7c74b92cb4263f561919941fa34cd623e58cd1ed3970442e8a3931128c2b8ed4",
+      "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
+      "result": {
+        "task_id": "task_001",
+        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
+        "correct": true,
+        "execution_time": 0.9990940093994141,
+        "agent_output": "11 + 15 = 26",
+        "expected_answer": "26",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-09 19:45:28",
+      "agent_file": "agents/with_google_search",
+      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
+    },
+    "with_google_search__task_002": {
+      "agent_hash": "7c74b92cb4263f561919941fa34cd623e58cd1ed3970442e8a3931128c2b8ed4",
+      "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
+      "result": {
+        "task_id": "task_002",
+        "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
+        "correct": false,
+        "execution_time": 1.6215078830718994,
+        "agent_output": "1213929 * 123123 = 149461579467",
+        "expected_answer": "149462580267",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-09 19:45:28",
+      "agent_file": "agents/with_google_search",
+      "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
+    },
+    "with_google_search__task_003": {
+      "agent_hash": "7c74b92cb4263f561919941fa34cd623e58cd1ed3970442e8a3931128c2b8ed4",
+      "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
+      "result": {
+        "task_id": "task_003",
+        "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
+        "correct": false,
+        "execution_time": 2.3844213485717773,
+        "agent_output": "989\u306e\u56e0\u6570\u5206\u89e3\u306f23 \u00d7 43\u3067\u3059\u3002",
+        "expected_answer": "23,43",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-09 19:45:28",
+      "agent_file": "agents/with_google_search",
+      "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
+    },
+    "with_google_search__task_004": {
+      "agent_hash": "7c74b92cb4263f561919941fa34cd623e58cd1ed3970442e8a3931128c2b8ed4",
+      "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
+      "result": {
+        "task_id": "task_004",
+        "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
+        "correct": false,
+        "execution_time": 132.5519082546234,
+        "agent_output": "484228009 \u3092\u7d20\u56e0\u6570\u5206\u89e3\u3059\u308b\u3068\u30013, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, ",
+        "expected_answer": "15077,32117",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-09 19:45:28",
+      "agent_file": "agents/with_google_search",
       "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
     }
   }
