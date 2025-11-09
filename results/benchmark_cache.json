@@ -2,72 +2,106 @@
   "cache_version": "1.0",
   "cached_results": {
     "agent_v1__task_001": {
-      "agent_hash": "4bcc73aef868054ffe748c355995dbc14ffbaf11614f6411331e64f2ee185b03",
-      "benchmark_hash": "f1b3510d876fddd32e12a8dc45675fd40439881fbea419f5db652d6d54e85236",
+      "agent_hash": "d84388bf76a0137c7ec6c4ee25ff452bd21983965c81ff8fb45ca6beaef2a57d",
+      "benchmark_hash": "de02523a48facf1d50c2a576d01555f0c9679b13fd21f87c486e5743aec59c4a",
       "result": {
         "task_id": "task_001",
         "task_name": "Find setup.py",
-        "correct": false,
-        "execution_time": 3.249866008758545,
-        "agent_output": "",
+        "correct": true,
+        "execution_time": 5.4098029136657715,
+        "agent_output": "FOUND: test_files/scenario1/setup.py",
         "expected_answer": "test_files/scenario1/setup.py",
         "token_count": null,
         "error": null
       },
-      "timestamp": "2025-11-01 13:09:22",
-      "agent_file": "agents/agent_v1.py",
+      "timestamp": "2025-11-09 18:42:06",
+      "agent_file": "agents/agent_v1",
       "task_name": "Find setup.py"
     },
     "agent_v1__task_002": {
-      "agent_hash": "4bcc73aef868054ffe748c355995dbc14ffbaf11614f6411331e64f2ee185b03",
-      "benchmark_hash": "df62bef75a9d6eda8b2c33f0412be1cd4acfa543197ffc576bad3175ec64f88d",
+      "agent_hash": "d84388bf76a0137c7ec6c4ee25ff452bd21983965c81ff8fb45ca6beaef2a57d",
+      "benchmark_hash": "511379e2db72ad572da22b62fd5b2a7f32b71a76bc329d147d8ea85b10406b94",
       "result": {
         "task_id": "task_002",
         "task_name": "Find config file",
-        "correct": false,
-        "execution_time": 2.989546060562134,
-        "agent_output": "",
+        "correct": true,
+        "execution_time": 3.349807024002075,
+        "agent_output": "FOUND: test_files/scenario1/config/config.yaml",
         "expected_answer": "test_files/scenario1/config/config.yaml",
         "token_count": null,
         "error": null
       },
-      "timestamp": "2025-11-01 13:09:22",
-      "agent_file": "agents/agent_v1.py",
+      "timestamp": "2025-11-09 18:42:06",
+      "agent_file": "agents/agent_v1",
       "task_name": "Find config file"
     },
+    "agent_v1__task_003": {
+      "agent_hash": "d84388bf76a0137c7ec6c4ee25ff452bd21983965c81ff8fb45ca6beaef2a57d",
+      "benchmark_hash": "4cc26db002b6abce9b9883bffd9385eed3e880a8d81e7b775fd1b42da485a43e",
+      "result": {
+        "task_id": "task_003",
+        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
+        "correct": false,
+        "execution_time": 3.7895379066467285,
+        "agent_output": "\u7533\u3057\u8a33\u3042\u308a\u307e\u305b\u3093\u3002\u8a08\u7b97\u554f\u984c\u306b\u306f\u304a\u7b54\u3048\u3067\u304d\u307e\u305b\u3093\u3002\u30d5\u30a1\u30a4\u30eb\u691c\u7d22\u306b\u95a2\u3059\u308b\u3054\u8cea\u554f\u304c\u3042\u308a\u307e\u3057\u305f\u3089\u3001\u304a\u6c17\u8efd\u306b\u304a\u5c0b\u306d\u304f\u3060\u3055\u3044\u3002",
+        "expected_answer": "26",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-09 18:49:45",
+      "agent_file": "agents/agent_v1",
+      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
+    },
     "agent_baseline__task_001": {
-      "agent_hash": "73219a85e8bba3cedf7d0b35bede58672d3493784f5c4a3531c7e5a1f7dd4e99",
-      "benchmark_hash": "f1b3510d876fddd32e12a8dc45675fd40439881fbea419f5db652d6d54e85236",
+      "agent_hash": "7287360104f7b32cbbd3d4539234880a9662c589849f3fe105764d9305c28c82",
+      "benchmark_hash": "de02523a48facf1d50c2a576d01555f0c9679b13fd21f87c486e5743aec59c4a",
       "result": {
         "task_id": "task_001",
         "task_name": "Find setup.py",
-        "correct": false,
-        "execution_time": 2.979457139968872,
-        "agent_output": "",
+        "correct": true,
+        "execution_time": 3.268008232116699,
+        "agent_output": "FOUND: test_files/scenario1/setup.py",
         "expected_answer": "test_files/scenario1/setup.py",
         "token_count": null,
         "error": null
       },
-      "timestamp": "2025-11-01 13:09:22",
-      "agent_file": "agents/agent_baseline.py",
+      "timestamp": "2025-11-09 18:42:06",
+      "agent_file": "agents/agent_baseline",
       "task_name": "Find setup.py"
     },
     "agent_baseline__task_002": {
-      "agent_hash": "73219a85e8bba3cedf7d0b35bede58672d3493784f5c4a3531c7e5a1f7dd4e99",
-      "benchmark_hash": "df62bef75a9d6eda8b2c33f0412be1cd4acfa543197ffc576bad3175ec64f88d",
+      "agent_hash": "7287360104f7b32cbbd3d4539234880a9662c589849f3fe105764d9305c28c82",
+      "benchmark_hash": "511379e2db72ad572da22b62fd5b2a7f32b71a76bc329d147d8ea85b10406b94",
       "result": {
         "task_id": "task_002",
         "task_name": "Find config file",
-        "correct": false,
-        "execution_time": 2.9939041137695312,
-        "agent_output": "",
+        "correct": true,
+        "execution_time": 3.1822052001953125,
+        "agent_output": "FOUND: test_files/scenario1/config/config.yaml",
         "expected_answer": "test_files/scenario1/config/config.yaml",
         "token_count": null,
         "error": null
       },
-      "timestamp": "2025-11-01 13:09:22",
-      "agent_file": "agents/agent_baseline.py",
+      "timestamp": "2025-11-09 18:42:06",
+      "agent_file": "agents/agent_baseline",
       "task_name": "Find config file"
+    },
+    "agent_baseline__task_003": {
+      "agent_hash": "7287360104f7b32cbbd3d4539234880a9662c589849f3fe105764d9305c28c82",
+      "benchmark_hash": "4cc26db002b6abce9b9883bffd9385eed3e880a8d81e7b775fd1b42da485a43e",
+      "result": {
+        "task_id": "task_003",
+        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
+        "correct": true,
+        "execution_time": 3.2735750675201416,
+        "agent_output": "26",
+        "expected_answer": "26",
+        "token_count": null,
+        "error": null
+      },
+      "timestamp": "2025-11-09 18:49:45",
+      "agent_file": "agents/agent_baseline",
+      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
     }
   }
 }

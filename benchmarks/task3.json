@@ -1,0 +1,7 @@
+{
+  "id": "task_003",
+  "name": "簡単な計算",
+  "description": "簡単な計算",
+  "query": "11+15は？",
+  "expected_answer": "26"
+}
