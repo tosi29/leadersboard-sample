@@ -230,7 +230,7 @@
 
         <div class="content">
             <div class="timestamp">
-                Last updated: 2025-11-09 10:22:17
+                Last updated: 2025-11-09 10:43:27
             </div>
 
             <div class="leaderboard">
@@ -240,18 +240,18 @@
                     
                     <div class="agent-card">
                         <div class="agent-header">
-                            <div class="agent-name">agent_v1</div>
+                            <div class="agent-name">gemini_2_5_flash</div>
                             <div class="rank-badge rank-1">Rank #1</div>
                         </div>
 
                         <div class="metrics">
                             <div class="metric">
                                 <div class="metric-label">Accuracy</div>
-                                <div class="metric-value accuracy">100.0%</div>
+                                <div class="metric-value accuracy">50.0%</div>
                             </div>
                             <div class="metric">
                                 <div class="metric-label">Average Time</div>
-                                <div class="metric-value">4.69s</div>
+                                <div class="metric-value">16.90s</div>
                             </div>
                         </div>
 
@@ -274,17 +274,17 @@
                                                 CORRECT
                                             </span>
                                         </td>
-                                        <td>3.52</td>
+                                        <td>3.70</td>
                                     </tr>
                                     
                                     <tr>
                                         <td>やや複雑な計算</td>
                                         <td>
-                                            <span class="status-badge status-correct">
-                                                CORRECT
+                                            <span class="status-badge status-incorrect">
+                                                INCORRECT
                                             </span>
                                         </td>
-                                        <td>2.35</td>
+                                        <td>1.63</td>
                                     </tr>
                                     
                                     <tr>
@@ -294,17 +294,17 @@
                                                 CORRECT
                                             </span>
                                         </td>
-                                        <td>5.48</td>
+                                        <td>2.97</td>
                                     </tr>
                                     
                                     <tr>
                                         <td>因数分解（10桁）</td>
                                         <td>
-                                            <span class="status-badge status-correct">
-                                                CORRECT
+                                            <span class="status-badge status-incorrect">
+                                                INCORRECT
                                             </span>
                                         </td>
-                                        <td>7.43</td>
+                                        <td>59.30</td>
                                     </tr>
                                     
                                 </tbody>
@@ -314,7 +314,7 @@
                     
                     <div class="agent-card">
                         <div class="agent-header">
-                            <div class="agent-name">agent_baseline</div>
+                            <div class="agent-name">with_code_executor</div>
                             <div class="rank-badge rank-2">Rank #2</div>
                         </div>
 
@@ -325,7 +325,7 @@
                             </div>
                             <div class="metric">
                                 <div class="metric-label">Average Time</div>
-                                <div class="metric-value">14.18s</div>
+                                <div class="metric-value">3.07s</div>
                             </div>
                         </div>
 
@@ -348,7 +348,7 @@
                                                 CORRECT
                                             </span>
                                         </td>
-                                        <td>1.12</td>
+                                        <td>3.80</td>
                                     </tr>
                                     
                                     <tr>
@@ -358,7 +358,7 @@
                                                 INCORRECT
                                             </span>
                                         </td>
-                                        <td>1.38</td>
+                                        <td>0.92</td>
                                     </tr>
                                     
                                     <tr>
@@ -368,7 +368,7 @@
                                                 CORRECT
                                             </span>
                                         </td>
-                                        <td>3.33</td>
+                                        <td>5.93</td>
                                     </tr>
                                     
                                     <tr>
@@ -378,7 +378,155 @@
                                                 INCORRECT
                                             </span>
                                         </td>
-                                        <td>50.91</td>
+                                        <td>1.62</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <div class="agent-name">with_google_search</div>
+                            <div class="rank-badge rank-3">Rank #3</div>
+                        </div>
+
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="metric-label">Accuracy</div>
+                                <div class="metric-value accuracy">25.0%</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Average Time</div>
+                                <div class="metric-value">2.43s</div>
+                            </div>
+                        </div>
+
+                        <div class="task-details">
+                            <h3>Task Results</h3>
+                            <table class="task-table">
+                                <thead>
+                                    <tr>
+                                        <th>Task</th>
+                                        <th>Status</th>
+                                        <th>Time (s)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <tr>
+                                        <td>簡単な計算</td>
+                                        <td>
+                                            <span class="status-badge status-correct">
+                                                CORRECT
+                                            </span>
+                                        </td>
+                                        <td>3.35</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>やや複雑な計算</td>
+                                        <td>
+                                            <span class="status-badge status-incorrect">
+                                                INCORRECT
+                                            </span>
+                                        </td>
+                                        <td>2.05</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>因数分解（3桁）</td>
+                                        <td>
+                                            <span class="status-badge status-incorrect">
+                                                INCORRECT
+                                            </span>
+                                        </td>
+                                        <td>2.35</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>因数分解（10桁）</td>
+                                        <td>
+                                            <span class="status-badge status-incorrect">
+                                                INCORRECT
+                                            </span>
+                                        </td>
+                                        <td>1.96</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <div class="agent-name">baseline</div>
+                            <div class="rank-badge rank-4">Rank #4</div>
+                        </div>
+
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="metric-label">Accuracy</div>
+                                <div class="metric-value accuracy">25.0%</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Average Time</div>
+                                <div class="metric-value">1.03s</div>
+                            </div>
+                        </div>
+
+                        <div class="task-details">
+                            <h3>Task Results</h3>
+                            <table class="task-table">
+                                <thead>
+                                    <tr>
+                                        <th>Task</th>
+                                        <th>Status</th>
+                                        <th>Time (s)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <tr>
+                                        <td>簡単な計算</td>
+                                        <td>
+                                            <span class="status-badge status-correct">
+                                                CORRECT
+                                            </span>
+                                        </td>
+                                        <td>1.04</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>やや複雑な計算</td>
+                                        <td>
+                                            <span class="status-badge status-incorrect">
+                                                INCORRECT
+                                            </span>
+                                        </td>
+                                        <td>1.00</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>因数分解（3桁）</td>
+                                        <td>
+                                            <span class="status-badge status-incorrect">
+                                                INCORRECT
+                                            </span>
+                                        </td>
+                                        <td>0.93</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>因数分解（10桁）</td>
+                                        <td>
+                                            <span class="status-badge status-incorrect">
+                                                INCORRECT
+                                            </span>
+                                        </td>
+                                        <td>1.14</td>
                                     </tr>
                                     
                                 </tbody>
