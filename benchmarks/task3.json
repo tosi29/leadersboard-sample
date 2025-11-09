@@ -1,7 +1,7 @@
 {
   "id": "task_003",
-  "name": "簡単な計算",
-  "description": "簡単な計算",
-  "query": "11+15は？",
-  "expected_answer": "26"
+  "name": "因数分解（3桁）",
+  "description": "試行錯誤が必要なタスク",
+  "query": "989を因数分解して回答してください。回答は数字の小さい順にコンマ区切りで回答してください。",
+  "expected_answer": "23,43"
 }

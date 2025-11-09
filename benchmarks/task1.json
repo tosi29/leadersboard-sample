@@ -1,7 +1,7 @@
 {
   "id": "task_001",
-  "name": "Find setup.py",
-  "description": "Find the setup.py file in the test_files/scenario1 directory",
-  "query": "Please find the setup.py file in the test_files/scenario1 directory and return its full path.",
-  "expected_answer": "test_files/scenario1/setup.py"
+  "name": "簡単な計算",
+  "description": "簡単な計算",
+  "query": "11+15は？ 答えたけを回答してください",
+  "expected_answer": "26"
 }

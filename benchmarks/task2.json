@@ -1,7 +1,7 @@
 {
   "id": "task_002",
-  "name": "Find config file",
-  "description": "Find the YAML configuration file in the test_files/scenario1 directory",
-  "query": "Please find the YAML configuration file in the test_files/scenario1/config directory and return its full path.",
-  "expected_answer": "test_files/scenario1/config/config.yaml"
+  "name": "やや複雑な計算",
+  "description": "やや複雑な乗算",
+  "query": "1213929*123123は？ 答えたけを回答してください",
+  "expected_answer": "149462580267"
 }
