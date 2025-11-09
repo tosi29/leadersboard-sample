@@ -1,0 +1,7 @@
+{
+  "id": "task_005",
+  "name": "検索タスク",
+  "description": "検索が必要なタスク",
+  "query": "2024年の名目GDPは何兆円？答えだけ回答してください",
+  "expected_answer": "609"
+}
