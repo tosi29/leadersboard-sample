@@ -8,7 +8,6 @@ AI agent benchmark and leaderboard system.
 - Correct/Incorrect evaluation
 - Execution time measurement
 - HTML report generation (GitHub Pages ready)
-- Extensible evaluation framework
 
 ## Project Structure
 
@@ -25,8 +24,6 @@ AI agent benchmark and leaderboard system.
 │   ├── evaluator.py    # Evaluation logic
 │   ├── reporter.py     # HTML report generator
 │   └── cache_manager.py # Test result caching
-├── test_files/          # Test files
-│   └── scenario1/
 ├── results/             # Execution results (JSON)
 ├── docs/                # HTML reports (for GitHub Pages)
 └── pyproject.toml       # uv configuration
@@ -74,7 +71,6 @@ echo "GOOGLE_API_KEY=your_api_key_here" > .env
 Create a new agent file in the `agents/` directory.
 
 ```python
-# agents/my_agent.py
 from google.adk.agents.llm_agent import Agent
 
 root_agent = Agent(
