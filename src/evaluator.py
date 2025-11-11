@@ -1,8 +1,13 @@
 """Evaluator - Evaluates agent outputs against expected answers"""
 
-from typing import Dict, Any
+from typing import Any, Dict
 
-def evaluate_result(agent_output: str, expected_answer: str, execution_success: bool) -> Dict[str, Any]:
+
+def evaluate_result(
+    agent_output: str,
+    expected_answer: str,
+    execution_success: bool,
+) -> Dict[str, Any]:
     """
     Evaluate an agent's output against the expected answer
 
