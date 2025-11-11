@@ -14,7 +14,7 @@ if "GOOGLE_API_KEY" not in os.environ:
 root_agent = Agent(
     model='gemini-2.5-flash',
     name='gemini_2_5_flash',
-    description="Gemini 2.5 Pro",
+    description="Gemini 2.5 Flash",
     instruction="""
     あなたは業務のアシスタントです。
     """,
