@@ -2,8 +2,8 @@
 
 import json
 from pathlib import Path
-from jinja2 import Template
 
+from jinja2 import Template
 
 HTML_TEMPLATE = """
 <!DOCTYPE html>
@@ -20,7 +20,9 @@ HTML_TEMPLATE = """
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont,
+                'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+                sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 2rem;
@@ -248,17 +250,23 @@ HTML_TEMPLATE = """
                     <div class="agent-card">
                         <div class="agent-header">
                             <div class="agent-name">{{ agent.name }}</div>
-                            <div class="rank-badge rank-{{ agent.rank }}">Rank #{{ agent.rank }}</div>
+                            <div class="rank-badge rank-{{ agent.rank }}">
+                                Rank #{{ agent.rank }}
+                            </div>
                         </div>
 
                         <div class="metrics">
                             <div class="metric">
                                 <div class="metric-label">Accuracy</div>
-                                <div class="metric-value accuracy">{{ "%.1f"|format(agent.accuracy) }}%</div>
+                                <div class="metric-value accuracy">
+                                    {{ "%.1f"|format(agent.accuracy) }}%
+                                </div>
                             </div>
                             <div class="metric">
                                 <div class="metric-label">Average Time</div>
-                                <div class="metric-value">{{ "%.2f"|format(agent.average_time) }}s</div>
+                                <div class="metric-value">
+                                    {{ "%.2f"|format(agent.average_time) }}s
+                                </div>
                             </div>
                         </div>
 
@@ -277,7 +285,9 @@ HTML_TEMPLATE = """
                                     <tr>
                                         <td>{{ task.name }}</td>
                                         <td>
-                                            <span class="status-badge status-{{ 'correct' if task.correct else 'incorrect' }}">
+                                            <span class="status-badge status-{{
+                                                'correct' if task.correct else 'incorrect'
+                                            }}">
                                                 {{ 'CORRECT' if task.correct else 'INCORRECT' }}
                                             </span>
                                         </td>

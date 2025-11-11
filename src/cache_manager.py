@@ -1,9 +1,9 @@
 """Cache manager for benchmark test results"""
 
-import json
 import hashlib
+import json
 from pathlib import Path
-from typing import Dict, Any, Optional
+from typing import Any, Dict, Optional
 
 
 class CacheManager:

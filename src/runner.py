@@ -1,17 +1,23 @@
 """Benchmark runner - Executes agents against benchmark tasks"""
 
 import json
+import os
 import time
 from pathlib import Path
-from typing import Dict, List, Any
-import os
+from typing import Any, Dict, List
+
 from cache_manager import CacheManager
 
 
 class BenchmarkRunner:
     """Runs benchmark tasks against AI agents"""
 
-    def __init__(self, agents_dir: str = "agents", benchmarks_dir: str = "benchmarks", use_cache: bool = True):
+    def __init__(
+        self,
+        agents_dir: str = "agents",
+        benchmarks_dir: str = "benchmarks",
+        use_cache: bool = True,
+    ):
         self.agents_dir = Path(agents_dir)
         self.benchmarks_dir = Path(benchmarks_dir)
         self.use_cache = use_cache
@@ -20,7 +26,11 @@ class BenchmarkRunner:
     def load_agents(self) -> List[Path]:
         """Load all agent directories from the agents directory"""
         # Get all directories in agents/ that contain an agent.py file
-        agents = [d for d in self.agents_dir.iterdir() if d.is_dir() and (d / "agent.py").exists()]
+        agents = [
+            d
+            for d in self.agents_dir.iterdir()
+            if d.is_dir() and (d / "agent.py").exists()
+        ]
         if not agents:
             raise ValueError(f"No agent directories found in {self.agents_dir}")
         return agents
@@ -49,9 +59,10 @@ class BenchmarkRunner:
 
         try:
             # Import required modules
-            import sys
-            import importlib.util
             import asyncio
+            import importlib.util
+            import sys
+
             from google.adk.runners import InMemoryRunner
             from google.genai import types
 
@@ -62,7 +73,9 @@ class BenchmarkRunner:
 
             try:
                 # Load the agent.py file
-                spec = importlib.util.spec_from_file_location("agent_module", agent_path / "agent.py")
+                spec = importlib.util.spec_from_file_location(
+                    "agent_module", agent_path / "agent.py"
+                )
                 agent_module = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(agent_module)
 
@@ -120,7 +133,10 @@ class BenchmarkRunner:
                                         result = part.code_execution_result
                                         if hasattr(result, 'output') and result.output:
                                             response_parts.append(result.output)
-                                            debug_info.append(f"    Added code result: {result.output[:50]}...")
+                                            truncated_output = result.output[:50]
+                                            debug_info.append(
+                                                f"    Added code result: {truncated_output}..."
+                                            )
 
                     # Print debug info if VERBOSE env var is set
                     if os.environ.get('VERBOSE'):
@@ -206,7 +222,11 @@ class BenchmarkRunner:
                     task_result = cached_result
                     cache_hits += 1
                     print(" [CACHED]")
-                    print(f"    Result: {'✓ CORRECT' if task_result['correct'] else '✗ INCORRECT'} ({task_result['execution_time']:.2f}s)")
+                    cached_status = (
+                        "✓ CORRECT" if task_result["correct"] else "✗ INCORRECT"
+                    )
+                    cached_duration = task_result["execution_time"]
+                    print(f"    Result: {cached_status} ({cached_duration:.2f}s)")
                 else:
                     # Run the agent
                     print()  # New line for non-cached execution
@@ -242,7 +262,9 @@ class BenchmarkRunner:
                         )
 
                     cache_misses += 1
-                    print(f"    Result: {'✓ CORRECT' if evaluation['correct'] else '✗ INCORRECT'} ({run_result['execution_time']:.2f}s)")
+                    status = "✓ CORRECT" if evaluation["correct"] else "✗ INCORRECT"
+                    duration = run_result["execution_time"]
+                    print(f"    Result: {status} ({duration:.2f}s)")
 
                 results["agents"][agent_name]["tasks"][task_id] = task_result
 
@@ -269,8 +291,12 @@ class BenchmarkRunner:
         if self.use_cache:
             total_tests = cache_hits + cache_misses
             print("\nCache Statistics:")
-            print(f"  Cache hits: {cache_hits}/{total_tests} ({cache_hits/total_tests*100:.1f}%)")
-            print(f"  New executions: {cache_misses}/{total_tests} ({cache_misses/total_tests*100:.1f}%)")
+            cache_hit_rate = (cache_hits / total_tests) * 100 if total_tests else 0.0
+            cache_miss_rate = (cache_misses / total_tests) * 100 if total_tests else 0.0
+            print(f"  Cache hits: {cache_hits}/{total_tests} ({cache_hit_rate:.1f}%)")
+            print(
+                f"  New executions: {cache_misses}/{total_tests} ({cache_miss_rate:.1f}%)"
+            )
 
         return results
 
