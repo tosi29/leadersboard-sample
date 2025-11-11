@@ -188,39 +188,22 @@ Open `http://localhost:8000` in your browser.
 3. Set Branch to `main` (or your branch) and folder to `/docs`
 4. The report will be published at `https://<username>.github.io/<repository>/`
 
-## GitHub Actions Integration (Future)
+## GitHub Actions Integration
 
-Create `.github/workflows/benchmark.yml` for automated benchmarking:
+Automated benchmarking is provided via `.github/workflows/bench-report.yml`.
+The workflow runs on pushes to the `main` branch and can also be triggered
+manually. Make sure to configure the `GOOGLE_API_KEY` secret so the benchmark
+run can access the Google AI APIs. The workflow performs the following steps:
 
-```yaml
-name: Run Benchmarks
+1. Checks out the repository
+2. Installs dependencies with `uv`
+3. Runs the benchmark suite (`src/runner.py`)
+4. Generates the HTML report (`src/reporter.py`)
+5. Publishes the contents of `docs/` to GitHub Pages using
+   `peaceiris/actions-gh-pages`
 
-on:
-  schedule:
-    - cron: '0 0 * * 0'  # Run weekly
-  workflow_dispatch:
-
-jobs:
-  benchmark:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install uv
-        run: pip install uv
-      - name: Install dependencies
-        run: uv sync
-      - name: Run benchmarks
-        env:
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-        run: uv run python src/runner.py
-      - name: Generate report
-        run: uv run python src/reporter.py
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-```
+Update the workflow if you need to change the trigger conditions or customize
+the deployment behaviour.
 
 ## Evaluation Metrics
 
