@@ -13,20 +13,32 @@ AI agent benchmark and leaderboard system.
 
 ```
 .
-├── agents/              # AI agent definitions (1 file = 1 agent)
-│   ├── agent_v1.py
-│   └── agent_baseline.py
-├── benchmarks/          # Benchmark task definitions
+├── agents/                     # AI agent definitions (1 directory = 1 agent)
+│   ├── baseline/
+│   │   └── agent.py
+│   ├── gemini_2_5_flash/
+│   │   └── agent.py
+│   ├── with_code_executor/
+│   │   └── agent.py
+│   └── with_google_search/
+│       └── agent.py
+├── benchmarks/                 # Benchmark task definitions
 │   ├── task1.json
-│   └── task2.json
-├── src/                 # Source code
-│   ├── runner.py       # Benchmark execution engine
-│   ├── evaluator.py    # Evaluation logic
-│   ├── reporter.py     # HTML report generator
-│   └── cache_manager.py # Test result caching
-├── results/             # Execution results (JSON)
-├── docs/                # HTML reports (for GitHub Pages)
-└── pyproject.toml       # uv configuration
+│   ├── task2.json
+│   ├── task3.json
+│   ├── task4.json
+│   └── task5.json
+├── results/                    # Execution results (JSON cache + history)
+├── src/                        # Source code
+│   ├── __init__.py
+│   ├── cache_manager.py        # Test result caching
+│   ├── evaluator.py            # Evaluation logic
+│   ├── reporter.py             # HTML report generator
+│   └── runner.py               # Benchmark execution engine
+├── pyproject.toml              # uv configuration
+├── README.md
+├── uv.lock
+└── docs/ (generated)           # HTML reports after running reporter
 ```
 
 ## Setup
@@ -129,17 +141,17 @@ uv run python src/runner.py --clear-cache
 
 **Example output:**
 ```
-Found 2 agents and 2 benchmark tasks
-Cache enabled: 4 cached results available
+Found 4 agents and 5 benchmark tasks
+Cache enabled: 15 cached results available
 
-Running agent: agent_v1
-  Task: task_001 - Find setup.py [CACHED]
-  Task: task_002 - Find config file
+Running agent: gemini_2_5_flash
+  Task: task_001 - 簡単な計算 [CACHED]
+  Task: task_002 - やや複雑な計算
     Result: ✓ CORRECT (8.2s)
 
 Cache Statistics:
-  Cache hits: 1/2 (50.0%)
-  New executions: 1/2 (50.0%)
+  Cache hits: 3/5 (60.0%)
+  New executions: 2/5 (40.0%)
 ```
 
 The cache file is stored at `results/benchmark_cache.json`.
@@ -157,6 +169,8 @@ The report is generated at `docs/index.html`.
 ```bash
 python -m http.server 8000 --directory docs
 ```
+
+> **Note:** The `docs/` directory is created when you run `uv run python src/reporter.py`. If it does not exist yet, generate the report first.
 
 Open `http://localhost:8000` in your browser.
 
