@@ -1,7 +1,6 @@
 """Benchmark runner - Executes agents against benchmark tasks"""
 
 import json
-import subprocess
 import time
 from pathlib import Path
 from typing import Dict, List, Any
@@ -106,7 +105,7 @@ class BenchmarkRunner:
                         if hasattr(event, 'content') and event.content:
                             if isinstance(event.content, str):
                                 response_parts.append(event.content)
-                                debug_info.append(f"  - Added string content")
+                                debug_info.append("  - Added string content")
                             elif hasattr(event.content, 'parts'):
                                 for i, part in enumerate(event.content.parts):
                                     part_type = type(part).__name__
@@ -206,7 +205,7 @@ class BenchmarkRunner:
                     # Use cached result
                     task_result = cached_result
                     cache_hits += 1
-                    print(f" [CACHED]")
+                    print(" [CACHED]")
                     print(f"    Result: {'✓ CORRECT' if task_result['correct'] else '✗ INCORRECT'} ({task_result['execution_time']:.2f}s)")
                 else:
                     # Run the agent
@@ -269,7 +268,7 @@ class BenchmarkRunner:
         # Print cache statistics
         if self.use_cache:
             total_tests = cache_hits + cache_misses
-            print(f"\nCache Statistics:")
+            print("\nCache Statistics:")
             print(f"  Cache hits: {cache_hits}/{total_tests} ({cache_hits/total_tests*100:.1f}%)")
             print(f"  New executions: {cache_misses}/{total_tests} ({cache_misses/total_tests*100:.1f}%)")
 

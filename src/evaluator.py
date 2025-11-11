@@ -1,6 +1,5 @@
 """Evaluator - Evaluates agent outputs against expected answers"""
 
-import re
 from typing import Dict, Any
 
 def evaluate_result(agent_output: str, expected_answer: str, execution_success: bool) -> Dict[str, Any]:
