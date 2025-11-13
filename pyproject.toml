@@ -3,23 +3,23 @@ name = "ai-benchmark-leaderboard"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = [
-    "google-adk>=1.17.0",
+    "google-adk>=1.18.0",
     "jinja2>=3.1.6",
 ]
 
 [dependency-groups]
 dev = [
-    "pre-commit>=3.7.1",
-    "ruff>=0.6.4",
+    "pre-commit>=4.4.0",
+    "ruff>=0.14.4",
 ]
 
 [tool.ruff]
 # Enforce a 100-character maximum line length so Ruff's formatter and linter
 # align with the project's preferred code width.
 line-length = 100
-target-version = "py311"
+target-version = "py313"
 src = [
     "src",
     "agents",
