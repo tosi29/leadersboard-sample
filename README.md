@@ -144,14 +144,11 @@ The benchmark runner automatically caches test results based on file hashes. Thi
 **Cache commands:**
 
 ```bash
-# Run with cache (default)
+# Default run (uses cached results when available)
 uv run python src/runner.py
 
-# Run without cache (force all tests)
-uv run python src/runner.py --no-cache
-
-# Clear cache before running
-uv run python src/runner.py --clear-cache
+# Ignore cached results (force all tests while updating the cache)
+uv run python src/runner.py --ignore-cache
 ```
 
 **Example output:**

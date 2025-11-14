@@ -17,7 +17,7 @@ class CacheManager:
         """Load existing cache data from file"""
         if self.cache_file.exists():
             try:
-                with open(self.cache_file, 'r') as f:
+                with open(self.cache_file, "r") as f:
                     return json.load(f)
             except (json.JSONDecodeError, IOError):
                 # If cache is corrupted, start fresh
@@ -27,8 +27,8 @@ class CacheManager:
     def _save_cache(self):
         """Save cache data to file"""
         self.cache_file.parent.mkdir(parents=True, exist_ok=True)
-        with open(self.cache_file, 'w') as f:
-            json.dump(self.cache_data, f, indent=2)
+        with open(self.cache_file, "w") as f:
+            json.dump(self.cache_data, f, indent=2, ensure_ascii=False)
 
     @staticmethod
     def compute_file_hash(file_path: Path) -> str:
@@ -53,9 +53,7 @@ class CacheManager:
         return f"{agent_name}__{task_id}"
 
     def get_cached_result(
-        self,
-        agent_path: Path,
-        benchmark: Dict[str, Any]
+        self, agent_path: Path, benchmark: Dict[str, Any]
     ) -> Optional[Dict[str, Any]]:
         """
         Get cached result if available and valid
@@ -87,18 +85,16 @@ class CacheManager:
         benchmark_hash = hashlib.sha256(benchmark_str.encode()).hexdigest()
 
         # Validate hashes
-        if (cached_entry.get("agent_hash") == agent_hash and
-            cached_entry.get("benchmark_hash") == benchmark_hash):
+        if (
+            cached_entry.get("agent_hash") == agent_hash
+            and cached_entry.get("benchmark_hash") == benchmark_hash
+        ):
             return cached_entry.get("result")
 
         return None
 
     def cache_result(
-        self,
-        agent_path: Path,
-        benchmark: Dict[str, Any],
-        result: Dict[str, Any],
-        timestamp: str
+        self, agent_path: Path, benchmark: Dict[str, Any], result: Dict[str, Any], timestamp: str
     ):
         """
         Cache a test result
@@ -126,7 +122,7 @@ class CacheManager:
             "result": result,
             "timestamp": timestamp,
             "agent_file": str(agent_path),
-            "task_name": benchmark.get("name", task_id)
+            "task_name": benchmark.get("name", task_id),
         }
 
         # Save to disk
@@ -141,5 +137,5 @@ class CacheManager:
         """Get statistics about cached results"""
         return {
             "total_cached": len(self.cache_data["cached_results"]),
-            "cache_version": self.cache_data.get("cache_version", "unknown")
+            "cache_version": self.cache_data.get("cache_version", "unknown"),
         }

@@ -16,12 +16,12 @@ class BenchmarkRunner:
         self,
         agents_dir: str = "agents",
         benchmarks_dir: str = "benchmarks",
-        use_cache: bool = True,
+        ignore_cache: bool = False,
     ):
         self.agents_dir = Path(agents_dir)
         self.benchmarks_dir = Path(benchmarks_dir)
-        self.use_cache = use_cache
-        self.cache_manager = CacheManager() if use_cache else None
+        self.ignore_cache = ignore_cache
+        self.cache_manager = CacheManager()
 
     def load_agents(self, selected_agent: Optional[str] = None) -> List[Path]:
         """
@@ -226,9 +226,15 @@ class BenchmarkRunner:
         benchmarks = self.load_benchmarks()
 
         print(f"Found {len(agents)} agents and {len(benchmarks)} benchmark tasks")
-        if self.use_cache:
+        if self.cache_manager:
             cache_stats = self.cache_manager.get_cache_stats()
-            print(f"Cache enabled: {cache_stats['total_cached']} cached results available")
+            if self.ignore_cache:
+                print(
+                    "Cache enabled (ignoring existing results): "
+                    f"{cache_stats['total_cached']} cached results available"
+                )
+            else:
+                print(f"Cache enabled: {cache_stats['total_cached']} cached results available")
 
         results = {
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
@@ -259,7 +265,7 @@ class BenchmarkRunner:
 
                 # Check cache first
                 cached_result = None
-                if self.use_cache:
+                if self.cache_manager and not self.ignore_cache:
                     cached_result = self.cache_manager.get_cached_result(agent_path, benchmark)
 
                 if cached_result:
@@ -288,7 +294,7 @@ class BenchmarkRunner:
                         "task_name": benchmark["name"],
                         "correct": evaluation["correct"],
                         "execution_time": run_result["execution_time"],
-                        "agent_output": run_result["output"][:500],  # Truncate for storage
+                        "agent_output": run_result["output"],
                         "expected_answer": benchmark["expected_answer"],
                         "input_tokens": run_result.get("input_tokens"),
                         "output_tokens": run_result.get("output_tokens"),
@@ -296,7 +302,7 @@ class BenchmarkRunner:
                     }
 
                     # Cache the result
-                    if self.use_cache:
+                    if self.cache_manager:
                         self.cache_manager.cache_result(
                             agent_path, benchmark, task_result, results["timestamp"]
                         )
@@ -328,13 +334,15 @@ class BenchmarkRunner:
         print(f"\nResults saved to {output_file}")
 
         # Print cache statistics
-        if self.use_cache:
+        if self.cache_manager:
             total_tests = cache_hits + cache_misses
             print("\nCache Statistics:")
             cache_hit_rate = (cache_hits / total_tests) * 100 if total_tests else 0.0
             cache_miss_rate = (cache_misses / total_tests) * 100 if total_tests else 0.0
             print(f"  Cache hits: {cache_hits}/{total_tests} ({cache_hit_rate:.1f}%)")
             print(f"  New executions: {cache_misses}/{total_tests} ({cache_miss_rate:.1f}%)")
+            if self.ignore_cache:
+                print("  Existing cached results were ignored for this run.")
 
         return results
 
@@ -345,24 +353,14 @@ def main():
 
     parser = argparse.ArgumentParser(description="Run AI agent benchmarks")
     parser.add_argument(
-        "--no-cache",
+        "--ignore-cache",
         action="store_true",
-        help="Disable caching and run all tests (default: use cache)",
-    )
-    parser.add_argument(
-        "--clear-cache", action="store_true", help="Clear cache before running tests"
+        help="Ignore cached results and re-run all tests while still updating the cache",
     )
     parser.add_argument("--agent", help="Optional agent directory name to run (default: all)")
     args = parser.parse_args()
 
-    use_cache = not args.no_cache
-
-    runner = BenchmarkRunner(use_cache=use_cache)
-
-    # Clear cache if requested
-    if args.clear_cache and use_cache:
-        print("Clearing cache...")
-        runner.cache_manager.clear_cache()
+    runner = BenchmarkRunner(ignore_cache=args.ignore_cache)
 
     results = runner.run_all(selected_agent=args.agent)
 
