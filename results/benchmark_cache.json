@@ -6,340 +6,360 @@
       "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
       "result": {
         "task_id": "task_001",
-        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
+        "task_name": "簡単な計算",
         "correct": true,
-        "execution_time": 3.5899388790130615,
-        "agent_output": "11+15\u306f26\u3067\u3059\u3002",
+        "execution_time": 3.8085200786590576,
+        "agent_output": "11+15=26",
         "expected_answer": "26",
-        "token_count": null,
+        "input_tokens": 59,
+        "output_tokens": 8,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:16:51",
       "agent_file": "agents/with_code_executor",
-      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
+      "task_name": "簡単な計算"
     },
     "with_code_executor__task_002": {
       "agent_hash": "d6a15c9d89c782f13083ff27f28153adda812d4a65ecb0a62943eb43f660dd33",
       "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
       "result": {
         "task_id": "task_002",
-        "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
+        "task_name": "やや複雑な計算",
         "correct": false,
-        "execution_time": 0.9484131336212158,
-        "agent_output": "tool_code\nprint(1213929 * 123123)",
+        "execution_time": 1.4254961013793945,
+        "agent_output": "1213929*123123 = 149457026587",
         "expected_answer": "149462580267",
-        "token_count": null,
+        "input_tokens": 68,
+        "output_tokens": 28,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:16:51",
       "agent_file": "agents/with_code_executor",
-      "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
+      "task_name": "やや複雑な計算"
     },
     "with_code_executor__task_003": {
       "agent_hash": "d6a15c9d89c782f13083ff27f28153adda812d4a65ecb0a62943eb43f660dd33",
       "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
       "result": {
         "task_id": "task_003",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
+        "task_name": "因数分解（3桁）",
         "correct": false,
-        "execution_time": 0.7550959587097168,
-        "agent_output": "```python\nimport sympy\n\nnumber = 989\nfactors = sympy.factor(number)\nprint(f'{factors=}')\n```",
+        "execution_time": 6.551286935806274,
+        "agent_output": "thought\nThe user wants to factorize the number 989 and wants the factors to be listed in ascending order, separated by commas. I should use a computational tool for this. The `sympy` library in Python can be used for factorization.\nI will use `sympy.factorint` to find the prime factors of 989.\nThen, I will format the output as requested.\n\n1. **Identify the task:** Factorize 989.\n2. **Identify the output format:** Comma-separated list of factors in ascending order.\n3. **Choose the tool:** Python'",
         "expected_answer": "23,43",
-        "token_count": null,
+        "input_tokens": 71,
+        "output_tokens": 275,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:16:51",
       "agent_file": "agents/with_code_executor",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
+      "task_name": "因数分解（3桁）"
     },
     "with_code_executor__task_004": {
       "agent_hash": "d6a15c9d89c782f13083ff27f28153adda812d4a65ecb0a62943eb43f660dd33",
       "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
       "result": {
         "task_id": "task_004",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
+        "task_name": "因数分解（10桁）",
         "correct": true,
-        "execution_time": 4.839749097824097,
-        "agent_output": "sorted_factors=[15077, 32117]\n15077,32117",
+        "execution_time": 6.051275968551636,
+        "agent_output": "sorted_factors=[15077, 32117]\n484228009を因数分解した結果、15077と32117になりました。\n小さい順にコンマ区切りで回答すると、以下のようになります。\n\n15077,32117",
         "expected_answer": "15077,32117",
-        "token_count": null,
+        "input_tokens": 77,
+        "output_tokens": 118,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:16:51",
       "agent_file": "agents/with_code_executor",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
+      "task_name": "因数分解（10桁）"
     },
     "gemini_2_5_flash__task_001": {
       "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
       "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
       "result": {
         "task_id": "task_001",
-        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
+        "task_name": "簡単な計算",
         "correct": true,
-        "execution_time": 4.593388080596924,
+        "execution_time": 4.530106782913208,
         "agent_output": "26",
         "expected_answer": "26",
-        "token_count": null,
+        "input_tokens": 62,
+        "output_tokens": 2,
         "error": null
       },
-      "timestamp": "2025-11-11 23:48:14",
+      "timestamp": "2025-11-15 00:21:38",
       "agent_file": "agents/gemini_2_5_flash",
-      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
+      "task_name": "簡単な計算"
     },
     "gemini_2_5_flash__task_002": {
       "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
       "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
       "result": {
         "task_id": "task_002",
-        "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
+        "task_name": "やや複雑な計算",
         "correct": false,
-        "execution_time": 1.5356450080871582,
-        "agent_output": "149467610427",
+        "execution_time": 1.4819920063018799,
+        "agent_output": "149463994387",
         "expected_answer": "149462580267",
-        "token_count": null,
+        "input_tokens": 71,
+        "output_tokens": 12,
         "error": null
       },
-      "timestamp": "2025-11-11 23:48:14",
+      "timestamp": "2025-11-15 00:21:38",
       "agent_file": "agents/gemini_2_5_flash",
-      "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
+      "task_name": "やや複雑な計算"
     },
     "gemini_2_5_flash__task_003": {
       "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
       "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
       "result": {
         "task_id": "task_003",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
+        "task_name": "因数分解（3桁）",
         "correct": true,
-        "execution_time": 5.5816099643707275,
+        "execution_time": 6.2286999225616455,
         "agent_output": "23,43",
         "expected_answer": "23,43",
-        "token_count": null,
+        "input_tokens": 74,
+        "output_tokens": 5,
         "error": null
       },
-      "timestamp": "2025-11-11 23:52:09",
+      "timestamp": "2025-11-15 00:29:37",
       "agent_file": "agents/gemini_2_5_flash",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
+      "task_name": "因数分解（3桁）"
     },
     "gemini_2_5_flash__task_004": {
       "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
       "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
       "result": {
         "task_id": "task_004",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
+        "task_name": "因数分解（10桁）",
         "correct": false,
-        "execution_time": 16.171077251434326,
-        "agent_output": "484228009\u3092\u56e0\u6570\u5206\u89e3\u3059\u308b\u3068\u4ee5\u4e0b\u306e\u3088\u3046\u306b\u306a\u308a\u307e\u3059\u3002\n\n3,3,53,139,7303",
+        "execution_time": 2.960738182067871,
+        "agent_output": "",
         "expected_answer": "15077,32117",
-        "token_count": null,
-        "error": null
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}"
       },
-      "timestamp": "2025-11-11 23:45:44",
+      "timestamp": "2025-11-15 00:29:37",
       "agent_file": "agents/gemini_2_5_flash",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
+      "task_name": "因数分解（10桁）"
     },
     "baseline__task_001": {
       "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
       "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
       "result": {
         "task_id": "task_001",
-        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
+        "task_name": "簡単な計算",
         "correct": true,
-        "execution_time": 1.02131986618042,
+        "execution_time": 4.28729510307312,
         "agent_output": "26",
         "expected_answer": "26",
-        "token_count": null,
+        "input_tokens": 53,
+        "output_tokens": 2,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:14:55",
       "agent_file": "agents/baseline",
-      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
+      "task_name": "簡単な計算"
     },
     "baseline__task_002": {
       "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
       "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
       "result": {
         "task_id": "task_002",
-        "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
+        "task_name": "やや複雑な計算",
         "correct": false,
-        "execution_time": 1.0235731601715088,
-        "agent_output": "149554110696",
+        "execution_time": 0.8301899433135986,
+        "agent_output": "149470043836",
         "expected_answer": "149462580267",
-        "token_count": null,
+        "input_tokens": 62,
+        "output_tokens": 12,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:14:55",
       "agent_file": "agents/baseline",
-      "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
+      "task_name": "やや複雑な計算"
     },
     "baseline__task_003": {
       "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
       "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
       "result": {
         "task_id": "task_003",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
+        "task_name": "因数分解（3桁）",
         "correct": false,
-        "execution_time": 1.0002472400665283,
-        "agent_output": "2, 3, 7, 47",
+        "execution_time": 1.0718910694122314,
+        "agent_output": "989を因数分解すると、以下のようになります。\n\n1, 989",
         "expected_answer": "23,43",
-        "token_count": null,
+        "input_tokens": 65,
+        "output_tokens": 20,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:14:55",
       "agent_file": "agents/baseline",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
+      "task_name": "因数分解（3桁）"
     },
     "baseline__task_004": {
       "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
       "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
       "result": {
         "task_id": "task_004",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
+        "task_name": "因数分解（10桁）",
         "correct": false,
-        "execution_time": 1.1113319396972656,
-        "agent_output": "2, 2, 3, 13, 17, 23, 31, 173",
+        "execution_time": 0.9540910720825195,
+        "agent_output": "2, 3, 3, 23, 37, 1009",
         "expected_answer": "15077,32117",
-        "token_count": null,
+        "input_tokens": 71,
+        "output_tokens": 21,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:14:55",
       "agent_file": "agents/baseline",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
+      "task_name": "因数分解（10桁）"
     },
     "with_google_search__task_001": {
       "agent_hash": "27d4335aea71ee5775ddb77391039a0d16e76919559012af577211fc31990679",
       "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
       "result": {
         "task_id": "task_001",
-        "task_name": "\u7c21\u5358\u306a\u8a08\u7b97",
+        "task_name": "簡単な計算",
         "correct": true,
-        "execution_time": 0.9653780460357666,
-        "agent_output": "11+15\u306f26\u3067\u3059\u3002",
+        "execution_time": 3.6080551147460938,
+        "agent_output": "26",
         "expected_answer": "26",
-        "token_count": null,
+        "input_tokens": 59,
+        "output_tokens": 2,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:19:56",
       "agent_file": "agents/with_google_search",
-      "task_name": "\u7c21\u5358\u306a\u8a08\u7b97"
+      "task_name": "簡単な計算"
     },
     "with_google_search__task_002": {
       "agent_hash": "27d4335aea71ee5775ddb77391039a0d16e76919559012af577211fc31990679",
       "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
       "result": {
         "task_id": "task_002",
-        "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97",
+        "task_name": "やや複雑な計算",
         "correct": false,
-        "execution_time": 1.9628000259399414,
-        "agent_output": "1213929 * 123123 = 149470200167",
+        "execution_time": 0.8721089363098145,
+        "agent_output": "1213929 * 123123 = 149454463967",
         "expected_answer": "149462580267",
-        "token_count": null,
+        "input_tokens": 68,
+        "output_tokens": 29,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:19:56",
       "agent_file": "agents/with_google_search",
-      "task_name": "\u3084\u3084\u8907\u96d1\u306a\u8a08\u7b97"
+      "task_name": "やや複雑な計算"
     },
     "with_google_search__task_003": {
       "agent_hash": "27d4335aea71ee5775ddb77391039a0d16e76919559012af577211fc31990679",
       "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
       "result": {
         "task_id": "task_003",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09",
+        "task_name": "因数分解（3桁）",
         "correct": false,
-        "execution_time": 1.9171531200408936,
-        "agent_output": "989\u3092\u7d20\u56e0\u6570\u5206\u89e3\u3059\u308b\u3068\u300123 \u00d7 43 \u3068\u306a\u308a\u307e\u3059\u3002\u3057\u305f\u304c\u3063\u3066\u3001989 \u306e\u56e0\u6570\u306f\u5c0f\u3055\u3044\u9806\u306b 1\u300123\u300143\u3001989 \u3067\u3059\u3002",
+        "execution_time": 3.175931930541992,
+        "agent_output": "989を素因数分解すると、23 × 43となります。\n\nしたがって、小さい順にコンマ区切りで回答すると「23, 43」となります。",
         "expected_answer": "23,43",
-        "token_count": null,
+        "input_tokens": 71,
+        "output_tokens": 58,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:19:56",
       "agent_file": "agents/with_google_search",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff083\u6841\uff09"
+      "task_name": "因数分解（3桁）"
     },
     "with_google_search__task_004": {
       "agent_hash": "27d4335aea71ee5775ddb77391039a0d16e76919559012af577211fc31990679",
       "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
       "result": {
         "task_id": "task_004",
-        "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09",
+        "task_name": "因数分解（10桁）",
         "correct": false,
-        "execution_time": 2.0110621452331543,
-        "agent_output": "484228009\u3092\u7d20\u56e0\u6570\u5206\u89e3\u3059\u308b\u3068\u3001101\u3001103\u3001457\u300145991\u3068\u306a\u308a\u307e\u3059\u3002\u5c0f\u3055\u3044\u9806\u306b\u30b3\u30f3\u30de\u533a\u5207\u308a\u3067\u4e26\u3079\u308b\u3068\u3001101, 103, 457, 45991\u3068\u306a\u308a\u307e\u3059\u3002",
+        "execution_time": 2.375570058822632,
+        "agent_output": "484228009を因数分解した結果、素因数は3、7、230584303です。したがって、小さい順にコンマ区切りで回答すると、3,7,230584303となります。",
         "expected_answer": "15077,32117",
-        "token_count": null,
+        "input_tokens": 77,
+        "output_tokens": 85,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:19:56",
       "agent_file": "agents/with_google_search",
-      "task_name": "\u56e0\u6570\u5206\u89e3\uff0810\u6841\uff09"
+      "task_name": "因数分解（10桁）"
     },
     "with_code_executor__task_005": {
       "agent_hash": "d6a15c9d89c782f13083ff27f28153adda812d4a65ecb0a62943eb43f660dd33",
       "benchmark_hash": "c6f8d9dd366f4d52144a1fa089e8512a9daf65b0fccb12e255f11833b599fd2b",
       "result": {
         "task_id": "task_005",
-        "task_name": "\u691c\u7d22\u30bf\u30b9\u30af",
+        "task_name": "検索タスク",
         "correct": false,
-        "execution_time": 1.1314539909362793,
-        "agent_output": "2024\u5e74\u306e\u540d\u76eeGDP\u306b\u95a2\u3059\u308b\u60c5\u5831\u306f\u73fe\u6642\u70b9\uff082024\u5e745\u670815\u65e5\uff09\u3067\u306f\u516c\u8868\u3055\u308c\u3066\u3044\u307e\u305b\u3093\u3002\u3057\u305f\u304c\u3063\u3066\u3001\u56de\u7b54\u3059\u308b\u3053\u3068\u306f\u3067\u304d\u307e\u305b\u3093\u3002",
+        "execution_time": 0.8648531436920166,
+        "agent_output": "2024年の名目GDPに関する現時点での正確な数値データは提供されていません。そのため、質問に直接お答えすることはできません。",
         "expected_answer": "609",
-        "token_count": null,
+        "input_tokens": 61,
+        "output_tokens": 31,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:16:51",
       "agent_file": "agents/with_code_executor",
-      "task_name": "\u691c\u7d22\u30bf\u30b9\u30af"
+      "task_name": "検索タスク"
     },
     "gemini_2_5_flash__task_005": {
       "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
       "benchmark_hash": "c6f8d9dd366f4d52144a1fa089e8512a9daf65b0fccb12e255f11833b599fd2b",
       "result": {
         "task_id": "task_005",
-        "task_name": "\u691c\u7d22\u30bf\u30b9\u30af",
+        "task_name": "検索タスク",
         "correct": false,
-        "execution_time": 25.921904802322388,
-        "agent_output": "616.5\u5146\u5186",
+        "execution_time": 14.028719902038574,
+        "agent_output": "617.1兆円",
         "expected_answer": "609",
-        "token_count": null,
+        "input_tokens": 64,
+        "output_tokens": 7,
         "error": null
       },
-      "timestamp": "2025-11-11 23:52:32",
+      "timestamp": "2025-11-15 00:21:38",
       "agent_file": "agents/gemini_2_5_flash",
-      "task_name": "\u691c\u7d22\u30bf\u30b9\u30af"
+      "task_name": "検索タスク"
     },
     "baseline__task_005": {
       "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
       "benchmark_hash": "c6f8d9dd366f4d52144a1fa089e8512a9daf65b0fccb12e255f11833b599fd2b",
       "result": {
         "task_id": "task_005",
-        "task_name": "\u691c\u7d22\u30bf\u30b9\u30af",
+        "task_name": "検索タスク",
         "correct": false,
-        "execution_time": 1.2555527687072754,
-        "agent_output": "[2024\u5e74\u306e\u540d\u76eeGDP\u306e\u4e88\u6e2c\u5024\u306f\u3001\u5185\u95a3\u5e9c\u306e\u767a\u8868\u306b\u3088\u308b\u3068600.6\u5146\u5186\u3067\u3059\u3002]",
+        "execution_time": 1.0151128768920898,
+        "agent_output": "2024年の名目GDPは、現時点では確定しておらず、予測値しか存在しません。\n\nそのため、確定した数字を回答することはできません。",
         "expected_answer": "609",
-        "token_count": null,
+        "input_tokens": 55,
+        "output_tokens": 34,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:14:55",
       "agent_file": "agents/baseline",
-      "task_name": "\u691c\u7d22\u30bf\u30b9\u30af"
+      "task_name": "検索タスク"
     },
     "with_google_search__task_005": {
       "agent_hash": "27d4335aea71ee5775ddb77391039a0d16e76919559012af577211fc31990679",
       "benchmark_hash": "c6f8d9dd366f4d52144a1fa089e8512a9daf65b0fccb12e255f11833b599fd2b",
       "result": {
         "task_id": "task_005",
-        "task_name": "\u691c\u7d22\u30bf\u30b9\u30af",
+        "task_name": "検索タスク",
         "correct": true,
-        "execution_time": 2.404438018798828,
-        "agent_output": "2024\u5e74\u306e\u540d\u76eeGDP\u306f\u3001\u7d04609\u5146\u5186\u3068\u306a\u308b\u898b\u8fbc\u307f\u3067\u3059\u3002\u3053\u308c\u306f\u5e74\u9593GDP\u3068\u3057\u3066\u521d\u3081\u3066600\u5146\u5186\u3092\u8d85\u3048\u308b\u984d\u3068\u306a\u308a\u307e\u3059\u3002",
+        "execution_time": 3.296647071838379,
+        "agent_output": "2024年の名目GDPは、約609兆円となる見込みです。 2024年4-6月期には、名目GDPが初めて600兆円を超え、同年7-9月期には過去最高を記録しました。",
         "expected_answer": "609",
-        "token_count": null,
+        "input_tokens": 61,
+        "output_tokens": 83,
         "error": null
       },
-      "timestamp": "2025-11-11 23:31:09",
+      "timestamp": "2025-11-15 00:19:56",
       "agent_file": "agents/with_google_search",
-      "task_name": "\u691c\u7d22\u30bf\u30b9\u30af"
+      "task_name": "検索タスク"
     }
   }
 }
