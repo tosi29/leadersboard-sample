@@ -234,9 +234,7 @@ class BenchmarkRunner:
                     f"{cache_stats['total_cached']} cached results available"
                 )
             else:
-                print(
-                    f"Cache enabled: {cache_stats['total_cached']} cached results available"
-                )
+                print(f"Cache enabled: {cache_stats['total_cached']} cached results available")
 
         results = {
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
@@ -296,7 +294,7 @@ class BenchmarkRunner:
                         "task_name": benchmark["name"],
                         "correct": evaluation["correct"],
                         "execution_time": run_result["execution_time"],
-                        "agent_output": run_result["output"][:500],  # Truncate for storage
+                        "agent_output": run_result["output"],
                         "expected_answer": benchmark["expected_answer"],
                         "input_tokens": run_result.get("input_tokens"),
                         "output_tokens": run_result.get("output_tokens"),
