@@ -1,6 +1,7 @@
 """Reporter - Generates HTML reports from benchmark results."""
 
 import json
+import sys
 from pathlib import Path
 from typing import Any, Dict, Optional
 
@@ -202,8 +203,6 @@ def generate_report(
 
 def main():
     """Main entry point for the reporter"""
-    import sys
-
     results_path = sys.argv[1] if len(sys.argv) > 1 else "results"
     output_file = sys.argv[2] if len(sys.argv) > 2 else "docs/index.html"
     template_file = sys.argv[3] if len(sys.argv) > 3 else None
