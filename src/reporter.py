@@ -1,8 +1,8 @@
-"""Reporter - Generates HTML reports from benchmark results"""
+"""Reporter - Generates HTML reports from benchmark results."""
 
 import json
 from pathlib import Path
-from typing import Optional
+from typing import Any, Dict, Optional
 
 from jinja2 import Template
 
@@ -20,27 +20,94 @@ def load_template(template_file: Optional[str] = None) -> Template:
     return Template(template_text)
 
 
+def _calculate_summary(tasks: Dict[str, Dict[str, Any]]) -> Dict[str, int]:
+    summary = {"total": 0, "correct": 0, "incorrect": 0, "errors": 0}
+    for task in tasks.values():
+        summary["total"] += 1
+        if task.get("error"):
+            summary["errors"] += 1
+        elif task.get("correct"):
+            summary["correct"] += 1
+        else:
+            summary["incorrect"] += 1
+    return summary
+
+
+def _load_agent_files(results_dir: Path) -> Dict[str, Any]:
+    agents: Dict[str, Dict[str, Any]] = {}
+    latest_timestamp: Optional[str] = None
+
+    for agent_file in sorted(results_dir.glob("*.json")):
+        try:
+            data = json.loads(agent_file.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+
+        agent_name = data.get("agent_name") or agent_file.stem
+        tasks_section = data.get("tasks", {})
+        normalized_tasks: Dict[str, Dict[str, Any]] = {}
+
+        for task_id, task_entry in tasks_section.items():
+            task_result = task_entry.get("result")
+            if not isinstance(task_result, dict):
+                continue
+            normalized_tasks[task_id] = task_result
+
+        if not normalized_tasks:
+            continue
+
+        summary = data.get("summary")
+        if not summary:
+            summary = _calculate_summary(normalized_tasks)
+
+        agents[agent_name] = {
+            "tasks": normalized_tasks,
+            "summary": summary,
+        }
+
+        timestamp = data.get("last_updated")
+        if timestamp and (latest_timestamp is None or timestamp > latest_timestamp):
+            latest_timestamp = timestamp
+
+    return {
+        "timestamp": latest_timestamp or "Unknown",
+        "agents": agents,
+    }
+
+
+def _load_results(results_path: Path) -> Dict[str, Any]:
+    if results_path.is_dir():
+        return _load_agent_files(results_path)
+
+    if results_path.is_file():
+        try:
+            with results_path.open("r", encoding="utf-8") as f:
+                return json.load(f)
+        except (OSError, json.JSONDecodeError):
+            pass
+
+    return {"timestamp": "Unknown", "agents": {}}
+
+
 def generate_report(
-    results_file: str = "results/benchmark_results.json",
+    results_path: str = "results",
     output_file: str = "docs/index.html",
     template_file: Optional[str] = None,
 ) -> None:
     """
-    Generate an HTML report from benchmark results
+    Generate an HTML report from benchmark results.
 
     Args:
-        results_file: Path to the JSON results file
+        results_path: Path to the results directory (or legacy JSON file)
         output_file: Path where the HTML report should be saved
         template_file: Optional override for the Jinja template path
     """
-    # Load results
-    results_path = Path(results_file)
-    if not results_path.exists():
-        print(f"Error: Results file not found at {results_file}")
+    path = Path(results_path)
+    if not path.exists():
+        print(f"Error: Results path not found at {results_path}")
         return
 
-    with results_path.open("r", encoding="utf-8") as f:
-        results = json.load(f)
+    results = _load_results(path)
 
     # Prepare data for template
     agents_data = []
@@ -137,11 +204,11 @@ def main():
     """Main entry point for the reporter"""
     import sys
 
-    results_file = sys.argv[1] if len(sys.argv) > 1 else "results/benchmark_results.json"
+    results_path = sys.argv[1] if len(sys.argv) > 1 else "results"
     output_file = sys.argv[2] if len(sys.argv) > 2 else "docs/index.html"
     template_file = sys.argv[3] if len(sys.argv) > 3 else None
 
-    generate_report(results_file, output_file, template_file)
+    generate_report(results_path, output_file, template_file)
 
 
 if __name__ == "__main__":

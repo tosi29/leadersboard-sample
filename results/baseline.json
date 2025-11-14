@@ -1,0 +1,98 @@
+{
+  "agent_name": "baseline",
+  "cache_version": "2.0",
+  "tasks": {
+    "task_001": {
+      "task_name": "簡単な計算",
+      "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
+      "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
+      "timestamp": "2025-11-15 01:22:41",
+      "result": {
+        "task_id": "task_001",
+        "task_name": "簡単な計算",
+        "correct": true,
+        "execution_time": 3.278006076812744,
+        "agent_output": "26",
+        "expected_answer": "26",
+        "input_tokens": 53,
+        "output_tokens": 2,
+        "error": null
+      }
+    },
+    "task_002": {
+      "task_name": "やや複雑な計算",
+      "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
+      "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
+      "timestamp": "2025-11-15 01:22:41",
+      "result": {
+        "task_id": "task_002",
+        "task_name": "やや複雑な計算",
+        "correct": false,
+        "execution_time": 1.0207982063293457,
+        "agent_output": "14951308944",
+        "expected_answer": "149462580267",
+        "input_tokens": 62,
+        "output_tokens": 11,
+        "error": null
+      }
+    },
+    "task_003": {
+      "task_name": "因数分解（3桁）",
+      "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
+      "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
+      "timestamp": "2025-11-15 01:22:41",
+      "result": {
+        "task_id": "task_003",
+        "task_name": "因数分解（3桁）",
+        "correct": false,
+        "execution_time": 0.8157858848571777,
+        "agent_output": "2, 3, 165",
+        "expected_answer": "23,43",
+        "input_tokens": 65,
+        "output_tokens": 9,
+        "error": null
+      }
+    },
+    "task_004": {
+      "task_name": "因数分解（10桁）",
+      "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
+      "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
+      "timestamp": "2025-11-15 01:22:41",
+      "result": {
+        "task_id": "task_004",
+        "task_name": "因数分解（10桁）",
+        "correct": false,
+        "execution_time": 0.8484258651733398,
+        "agent_output": "2, 3, 7, 11, 13, 17, 19, 23, 29, 31, 37",
+        "expected_answer": "15077,32117",
+        "input_tokens": 71,
+        "output_tokens": 39,
+        "error": null
+      }
+    },
+    "task_005": {
+      "task_name": "検索タスク",
+      "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
+      "benchmark_hash": "c6f8d9dd366f4d52144a1fa089e8512a9daf65b0fccb12e255f11833b599fd2b",
+      "timestamp": "2025-11-15 01:22:41",
+      "result": {
+        "task_id": "task_005",
+        "task_name": "検索タスク",
+        "correct": false,
+        "execution_time": 0.89251708984375,
+        "agent_output": "2024年の名目GDPは597兆円です。",
+        "expected_answer": "609",
+        "input_tokens": 55,
+        "output_tokens": 16,
+        "error": null
+      }
+    }
+  },
+  "summary": {
+    "total": 5,
+    "correct": 1,
+    "incorrect": 4,
+    "errors": 0
+  },
+  "last_updated": "2025-11-15 01:22:41"
+}

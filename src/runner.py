@@ -211,11 +211,7 @@ class BenchmarkRunner:
                 "output_tokens": None,
             }
 
-    def run_all(
-        self,
-        output_file: str = "results/benchmark_results.json",
-        selected_agent: Optional[str] = None,
-    ) -> Dict[str, Any]:
+    def run_all(self, selected_agent: Optional[str] = None) -> Dict[str, Any]:
         """
         Run all agents against all benchmarks
 
@@ -324,14 +320,7 @@ class BenchmarkRunner:
                 else:
                     summary["incorrect"] += 1
 
-        # Save results to file
-        output_path = Path(output_file)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-
-        with open(output_path, "w") as f:
-            json.dump(results, f, indent=2, ensure_ascii=False)
-
-        print(f"\nResults saved to {output_file}")
+        print("\nResults saved per agent under the results/ directory")
 
         # Print cache statistics
         if self.cache_manager:

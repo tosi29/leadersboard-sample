@@ -1,0 +1,98 @@
+{
+  "agent_name": "gemini_2_5_flash",
+  "cache_version": "2.0",
+  "tasks": {
+    "task_001": {
+      "task_name": "簡単な計算",
+      "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
+      "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
+      "timestamp": "2025-11-15 01:25:22",
+      "result": {
+        "task_id": "task_001",
+        "task_name": "簡単な計算",
+        "correct": true,
+        "execution_time": 4.657102823257446,
+        "agent_output": "26",
+        "expected_answer": "26",
+        "input_tokens": 62,
+        "output_tokens": 2,
+        "error": null
+      }
+    },
+    "task_002": {
+      "task_name": "やや複雑な計算",
+      "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
+      "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
+      "timestamp": "2025-11-15 01:25:22",
+      "result": {
+        "task_id": "task_002",
+        "task_name": "やや複雑な計算",
+        "correct": false,
+        "execution_time": 2.686300039291382,
+        "agent_output": "149469507987",
+        "expected_answer": "149462580267",
+        "input_tokens": 71,
+        "output_tokens": 12,
+        "error": null
+      }
+    },
+    "task_003": {
+      "task_name": "因数分解（3桁）",
+      "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
+      "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
+      "timestamp": "2025-11-15 01:25:22",
+      "result": {
+        "task_id": "task_003",
+        "task_name": "因数分解（3桁）",
+        "correct": true,
+        "execution_time": 4.955046892166138,
+        "agent_output": "23,43",
+        "expected_answer": "23,43",
+        "input_tokens": 74,
+        "output_tokens": 5,
+        "error": null
+      }
+    },
+    "task_004": {
+      "task_name": "因数分解（10桁）",
+      "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
+      "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
+      "timestamp": "2025-11-15 01:26:19",
+      "result": {
+        "task_id": "task_004",
+        "task_name": "因数分解（10桁）",
+        "correct": false,
+        "execution_time": 5.022686004638672,
+        "agent_output": "",
+        "expected_answer": "15077,32117",
+        "input_tokens": null,
+        "output_tokens": null,
+        "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}"
+      }
+    },
+    "task_005": {
+      "task_name": "検索タスク",
+      "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
+      "benchmark_hash": "c6f8d9dd366f4d52144a1fa089e8512a9daf65b0fccb12e255f11833b599fd2b",
+      "timestamp": "2025-11-15 01:25:22",
+      "result": {
+        "task_id": "task_005",
+        "task_name": "検索タスク",
+        "correct": false,
+        "execution_time": 9.213018894195557,
+        "agent_output": "630兆円",
+        "expected_answer": "609",
+        "input_tokens": 64,
+        "output_tokens": 5,
+        "error": null
+      }
+    }
+  },
+  "summary": {
+    "total": 5,
+    "correct": 2,
+    "incorrect": 2,
+    "errors": 1
+  },
+  "last_updated": "2025-11-15 01:26:19"
+}

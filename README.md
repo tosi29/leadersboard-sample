@@ -129,7 +129,7 @@ To run benchmarks for a single agent directory, pass its name with `--agent`:
 uv run python src/runner.py --agent baseline
 ```
 
-Results are saved to `results/benchmark_results.json`.
+Each agent's latest results are saved to `results/<agent_name>.json`.
 
 #### Caching for Cost Optimization
 
@@ -166,7 +166,9 @@ Cache Statistics:
   New executions: 2/5 (40.0%)
 ```
 
-The cache file is stored at `results/benchmark_cache.json`.
+Cached data now lives in the per-agent result files under `results/`. Each JSON file
+stores the agent/benchmark hashes for every task so unchanged combinations are safely
+skipped.
 
 ### 4. Generate HTML report
 
@@ -174,7 +176,8 @@ The cache file is stored at `results/benchmark_cache.json`.
 uv run python src/reporter.py
 ```
 
-The report is generated at `docs/index.html`.
+By default the reporter aggregates every `results/*.json` file and writes the HTML to
+`docs/index.html`.
 
 ### 5. View report locally
 
@@ -216,7 +219,7 @@ Currently supported:
 
 - Correct/Incorrect (case-insensitive substring matching against the expected answer)
 - Execution time
-- Token count (placeholder, to be implemented)
+- Token count (input/output averages shown in the report)
 
 ## Customization
 
@@ -226,7 +229,7 @@ Edit `evaluate_result()` in `src/evaluator.py`.
 
 ### Custom HTML template
 
-Edit `HTML_TEMPLATE` in `src/reporter.py`.
+Edit `src/templates/leaderboard.html`.
 
 ## Troubleshooting
 
