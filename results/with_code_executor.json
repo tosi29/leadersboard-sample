@@ -8,8 +8,6 @@
       "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
       "timestamp": "2025-11-15 01:28:29",
       "result": {
-        "task_id": "task_001",
-        "task_name": "簡単な計算",
         "correct": true,
         "execution_time": 3.2938740253448486,
         "agent_output": "11 + 15 = 26 です。",
@@ -25,8 +23,6 @@
       "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
       "timestamp": "2025-11-15 01:28:29",
       "result": {
-        "task_id": "task_002",
-        "task_name": "やや複雑な計算",
         "correct": false,
         "execution_time": 1.1010010242462158,
         "agent_output": "tool_code\nprint(1213929 * 123123)",
@@ -42,8 +38,6 @@
       "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
       "timestamp": "2025-11-15 01:28:29",
       "result": {
-        "task_id": "task_003",
-        "task_name": "因数分解（3桁）",
         "correct": true,
         "execution_time": 1.9639358520507812,
         "agent_output": "989を因数分解します。\n\n989の素因数分解を行うには、まず小さな素数から順に割り切れるか試していきます。\n\n*   2で割り切れるか？ → 989は奇数なので割り切れません。\n*   3で割り切れるか？ → 各桁の和 9 + 8 + 9 = 26 は3で割り切れないので、989も3で割り切れません。\n*   5で割り切れるか？ → 末尾が0または5ではないので割り切れません。\n*   7で割り切れるか？ → 989 ÷ 7 = 141 余り 2 なので割り切れません。\n*   11で割り切れるか？ → (9 + 9) - 8 = 10 は11で割り切れないので、989も11で割り切れません。\n*   13で割り切れるか？ → 989 ÷ 13 = 76 余り 1 なので割り切れません。\n*   17で割り切れるか？ → 989 ÷ 17 = 58 余り 3 なので割り切れません。\n*   19で割り切れるか？ → 989 ÷ 19 = 52 余り 1 なので割り切れません。\n*   23で割り切れるか？ → 989 ÷ 23 = 43\n\n989は23で割り切れることがわかりました。商は43です。\n23と43はどちらも素数です。\n\nしたがって、989の因数分解は 23 × 43 です。\n\n回答は小さい順にコンマ区切りで以下のようになります。\n\n23,43",
@@ -59,8 +53,6 @@
       "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
       "timestamp": "2025-11-15 01:28:29",
       "result": {
-        "task_id": "task_004",
-        "task_name": "因数分解（10桁）",
         "correct": true,
         "execution_time": 4.392905950546265,
         "agent_output": "Okay, I need to find the prime factorization of 484228009 and list the factors in ascending order, separated by commas. I will use the `sympy` library to perform the factorization.\n\nsorted_factors=[15077, 32117]\nThe prime factors of 484228009 are 15077 and 32117.\n\nTherefore, the factorization in ascending order is:\n15077,32117",
@@ -76,8 +68,6 @@
       "benchmark_hash": "c6f8d9dd366f4d52144a1fa089e8512a9daf65b0fccb12e255f11833b599fd2b",
       "timestamp": "2025-11-15 01:28:29",
       "result": {
-        "task_id": "task_005",
-        "task_name": "検索タスク",
         "correct": false,
         "execution_time": 2.5403831005096436,
         "agent_output": "HTTPSConnectionPool(host='quarterly-gdp.onrender.com', port=443): Max retries exceeded with url: /api/v1/gdp/year/2024 (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fddb6d5a3f0>: Failed to resolve 'quarterly-gdp.onrender.com' ([Errno -3] Temporary failure in name resolution)\"))\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 198, in _new_conn\n    sock = connection.create_connection(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py\", line 60, in create_connection\n    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 976, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsocket.gaierror: [Errno -3] Temporary failure in name resolution\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 787, in urlopen\n    response = self._make_request(\n               ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 488, in _make_request\n    raise new_e\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 464, in _make_request\n    self._validate_conn(conn)\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 1093, in _validate_conn\n    conn.connect()\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 753, in connect\n    self.sock = sock = self._new_conn()\n                       ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 205, in _new_conn\n    raise NameResolutionError(self.host, self, e) from e\nurllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7fddb6d5a3f0>: Failed to resolve 'quarterly-gdp.onrender.com' ([Errno -3] Temporary failure in name resolution)\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/requests/adapters.py\", line 644, in send\n    resp = conn.urlopen(\n           ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 841, in urlopen\n    retries = retries.increment(\n              ^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/util/retry.py\", line 519, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nurllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='quarterly-gdp.onrender.com', port=443): Max retries exceeded with url: /api/v1/gdp/year/2024 (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fddb6d5a3f0>: Failed to resolve 'quarterly-gdp.onrender.com' ([Errno -3] Temporary failure in name resolution)\"))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/bin/entry/entry_point\", line 109, in _run_python\n    exec(code, exec_scope)  # pylint: disable=exec-used\n    ^^^^^^^^^^^^^^^^^^^^^^\n  File \"<string>\", line 4, in <module>\n  File \"/usr/local/lib/python3.12/site-packages/requests/api.py\", line 73, in get\n    return request(\"get\", url, params=params, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/requests/api.py\", line 59, in request\n    return session.request(method=method, url=url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/requests/sessions.py\", line 589, in request\n    resp = self.send(prep, **send_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/requests/sessions.py\", line 703, in send\n    r = adapter.send(request, **kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/requests/adapters.py\", line 677, in send\n    raise ConnectionError(e, request=request)\nrequests.exceptions.ConnectionError: HTTPSConnectionPool(host='quarterly-gdp.onrender.com', port=443): Max retries exceeded with url: /api/v1/gdp/year/2024 (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fddb6d5a3f0>: Failed to resolve 'quarterly-gdp.onrender.com' ([Errno -3] Temporary failure in name resolution)\"))\n情報源にアクセスできませんでした。2024年の名目GDPに関する正確な数値を提供できません。",

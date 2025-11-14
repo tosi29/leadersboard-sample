@@ -8,8 +8,6 @@
       "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
       "timestamp": "2025-11-15 01:29:25",
       "result": {
-        "task_id": "task_001",
-        "task_name": "簡単な計算",
         "correct": true,
         "execution_time": 3.9069597721099854,
         "agent_output": "11+15は26です。",
@@ -25,8 +23,6 @@
       "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
       "timestamp": "2025-11-15 01:29:25",
       "result": {
-        "task_id": "task_002",
-        "task_name": "やや複雑な計算",
         "correct": false,
         "execution_time": 2.3507421016693115,
         "agent_output": "1213929 * 123123 = 149474320087",
@@ -42,8 +38,6 @@
       "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
       "timestamp": "2025-11-15 01:29:25",
       "result": {
-        "task_id": "task_003",
-        "task_name": "因数分解（3桁）",
         "correct": false,
         "execution_time": 2.2528748512268066,
         "agent_output": "989を素因数分解すると、23 × 43 となります。\n\nしたがって、989の約数は小さい順に1、23、43、989です。",
@@ -59,8 +53,6 @@
       "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
       "timestamp": "2025-11-15 01:29:25",
       "result": {
-        "task_id": "task_004",
-        "task_name": "因数分解（10桁）",
         "correct": false,
         "execution_time": 1.7381277084350586,
         "agent_output": "484228009を素因数分解した結果は、以下の通りです。\n\n484228009 = 7 × 69175429.857...\n\nお探しの数字が素数であるか、またはさらに因数分解できるかについて、追加の情報が必要な場合はお知らせください。",
@@ -76,8 +68,6 @@
       "benchmark_hash": "c6f8d9dd366f4d52144a1fa089e8512a9daf65b0fccb12e255f11833b599fd2b",
       "timestamp": "2025-11-15 01:29:25",
       "result": {
-        "task_id": "task_005",
-        "task_name": "検索タスク",
         "correct": true,
         "execution_time": 2.533989191055298,
         "agent_output": "2024年の名目GDPは約609兆円と予測されています。また、2024年度政府経済見通しでは、名目GDPが約615兆円となると見込まれています。",

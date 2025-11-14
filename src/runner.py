@@ -288,8 +288,6 @@ class BenchmarkRunner:
 
                     # Store the result
                     task_result = {
-                        "task_id": task_id,
-                        "task_name": benchmark["name"],
                         "correct": evaluation["correct"],
                         "execution_time": run_result["execution_time"],
                         "agent_output": run_result["output"],

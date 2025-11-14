@@ -52,7 +52,10 @@ def _load_agent_files(results_dir: Path) -> Dict[str, Any]:
             task_result = task_entry.get("result")
             if not isinstance(task_result, dict):
                 continue
-            normalized_tasks[task_id] = task_result
+
+            task_info = dict(task_result)
+            task_info.setdefault("task_name", task_entry.get("task_name", task_id))
+            normalized_tasks[task_id] = task_info
 
         if not normalized_tasks:
             continue
