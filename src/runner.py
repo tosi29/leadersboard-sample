@@ -4,7 +4,7 @@ import json
 import os
 import time
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from cache_manager import CacheManager
 
@@ -23,17 +23,39 @@ class BenchmarkRunner:
         self.use_cache = use_cache
         self.cache_manager = CacheManager() if use_cache else None
 
-    def load_agents(self) -> List[Path]:
-        """Load all agent directories from the agents directory"""
+    def load_agents(self, selected_agent: Optional[str] = None) -> List[Path]:
+        """
+        Load agent directories from the agents directory.
+
+        Args:
+            selected_agent: Optional agent directory name to load. If provided,
+                only the agent whose directory name matches will be returned.
+        """
         # Get all directories in agents/ that contain an agent.py file
-        agents = [
-            d
-            for d in self.agents_dir.iterdir()
-            if d.is_dir() and (d / "agent.py").exists()
-        ]
+        agents = sorted(
+            [
+                d
+                for d in self.agents_dir.iterdir()
+                if d.is_dir() and (d / "agent.py").exists()
+            ],
+            key=lambda path: path.name,
+        )
         if not agents:
             raise ValueError(f"No agent directories found in {self.agents_dir}")
-        return agents
+
+        if selected_agent is None:
+            return agents
+
+        agents_by_name = {agent.name: agent for agent in agents}
+        if selected_agent not in agents_by_name:
+            available = ", ".join(sorted(agents_by_name.keys()))
+            raise ValueError(
+                "Unknown agent: "
+                + selected_agent
+                + f". Available agents: {available}"
+            )
+
+        return [agents_by_name[selected_agent]]
 
     def load_benchmarks(self) -> List[Dict[str, Any]]:
         """Load all benchmark task definitions"""
@@ -170,14 +192,18 @@ class BenchmarkRunner:
                 "error": str(e),
             }
 
-    def run_all(self, output_file: str = "results/benchmark_results.json") -> Dict[str, Any]:
+    def run_all(
+        self,
+        output_file: str = "results/benchmark_results.json",
+        selected_agent: Optional[str] = None,
+    ) -> Dict[str, Any]:
         """
         Run all agents against all benchmarks
 
         Returns:
             Dictionary containing all benchmark results
         """
-        agents = self.load_agents()
+        agents = self.load_agents(selected_agent)
         benchmarks = self.load_benchmarks()
 
         print(f"Found {len(agents)} agents and {len(benchmarks)} benchmark tasks")
@@ -316,6 +342,10 @@ def main():
         action="store_true",
         help="Clear cache before running tests"
     )
+    parser.add_argument(
+        "--agent",
+        help="Optional agent directory name to run (default: all)"
+    )
     args = parser.parse_args()
 
     use_cache = not args.no_cache
@@ -327,7 +357,7 @@ def main():
         print("Clearing cache...")
         runner.cache_manager.clear_cache()
 
-    results = runner.run_all()
+    results = runner.run_all(selected_agent=args.agent)
 
     # Print summary
     print("\n" + "="*60)

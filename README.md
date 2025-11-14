@@ -121,6 +121,14 @@ Create task definitions in the `benchmarks/` directory.
 uv run python src/runner.py
 ```
 
+If you omit `--agent`, the runner executes every available agent directory.
+
+To run benchmarks for a single agent directory, pass its name with `--agent`:
+
+```bash
+uv run python src/runner.py --agent baseline
+```
+
 Results are saved to `results/benchmark_results.json`.
 
 #### Caching for Cost Optimization
