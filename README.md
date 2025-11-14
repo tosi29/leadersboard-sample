@@ -23,11 +23,11 @@ AI agent benchmark and leaderboard system.
 │   └── with_google_search/
 │       └── agent.py
 ├── benchmarks/                 # Benchmark task definitions
-│   ├── task1.json
-│   ├── task2.json
-│   ├── task3.json
-│   ├── task4.json
-│   └── task5.json
+│   ├── task_001.json
+│   ├── task_002.json
+│   ├── task_003.json
+│   ├── task_004.json
+│   └── task_005.json
 ├── results/                    # Execution results (JSON cache + history)
 ├── src/                        # Source code
 │   ├── __init__.py
