@@ -31,10 +31,12 @@ AI agent benchmark and leaderboard system.
 ├── results/                    # Execution results (JSON cache + history)
 ├── src/                        # Source code
 │   ├── __init__.py
-│   ├── cache_manager.py        # Test result caching
-│   ├── evaluator.py            # Evaluation logic
 │   ├── reporter.py             # HTML report generator
-│   └── runner.py               # Benchmark execution engine
+│   ├── runner.py               # Benchmark execution engine
+│   └── services/
+│       ├── __init__.py
+│       ├── cache_manager.py    # Test result caching
+│       └── evaluator.py        # Evaluation logic
 ├── pyproject.toml              # uv configuration
 ├── README.md
 ├── uv.lock
@@ -225,7 +227,7 @@ Currently supported:
 
 ### Custom evaluation logic
 
-Edit `evaluate_result()` in `src/evaluator.py`.
+Edit `evaluate_result()` in `src/services/evaluator.py`.
 
 ### Custom HTML template
 

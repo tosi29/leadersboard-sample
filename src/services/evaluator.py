@@ -75,4 +75,3 @@ def calculate_accuracy(results: Dict[str, Any]) -> Dict[str, float]:
         }
 
     return accuracies
-

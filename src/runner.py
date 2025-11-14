@@ -6,7 +6,7 @@ import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from cache_manager import CacheManager
+from services.cache_manager import CacheManager
 
 
 class BenchmarkRunner:
@@ -278,7 +278,7 @@ class BenchmarkRunner:
                     run_result = self.run_agent(agent_path, benchmark["query"])
 
                     # Evaluate the result (this will be enhanced by evaluator.py)
-                    from evaluator import evaluate_result
+                    from services.evaluator import evaluate_result
 
                     evaluation = evaluate_result(
                         run_result["output"], benchmark["expected_answer"], run_result["success"]
