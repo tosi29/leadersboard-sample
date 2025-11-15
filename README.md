@@ -58,7 +58,7 @@ AI agent benchmark and leaderboard system.
 
 ```bash
 git clone <repository-url>
-cd leadersboard-sample
+cd leaderboard-sample
 ```
 
 2. Install dependencies
