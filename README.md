@@ -1,19 +1,19 @@
 # AI Agent Benchmark Leaderboard
 
-AI agent benchmark and leaderboard system.
+AIエージェントのベンチマークとリーダーボードを構築・運用するためのシステムです。
 
-## Features
+## 特徴
 
-- Benchmark execution for AI agents
-- Correct/Incorrect evaluation
-- Execution time measurement
-- HTML report generation (GitHub Pages ready)
+- AIエージェントのベンチマーク実行
+- 正誤判定
+- 実行時間の計測
+- HTMLレポート生成（GitHub Pages対応）
 
-## Project Structure
+## プロジェクト構成
 
 ```
 .
-├── agents/                     # AI agent definitions (1 directory = 1 agent)
+├── agents/                     # AIエージェントの定義（1ディレクトリ = 1エージェント）
 │   ├── baseline/
 │   │   └── agent.py
 │   ├── gemini_2_5_flash/
@@ -22,74 +22,75 @@ AI agent benchmark and leaderboard system.
 │   │   └── agent.py
 │   └── with_google_search/
 │       └── agent.py
-├── benchmarks/                 # Benchmark task definitions
+├── benchmarks/                 # ベンチマークタスクの定義
 │   ├── task_001.json
 │   ├── task_002.json
 │   ├── task_003.json
 │   ├── task_004.json
 │   └── task_005.json
-├── results/                    # Execution results (JSON cache + history)
-├── src/                        # Source code
+├── results/                    # 実行結果（JSONキャッシュ + 履歴）
+├── src/                        # ソースコード
 │   ├── __init__.py
-│   ├── reporter.py             # HTML report generator
-│   ├── runner.py               # Benchmark execution engine
+│   ├── reporter.py             # HTMLレポート生成器
+│   ├── runner.py               # ベンチマーク実行エンジン
 │   └── services/
 │       ├── __init__.py
-│       ├── cache_manager.py    # Test result caching
-│       └── evaluator.py        # Evaluation logic
-├── pyproject.toml              # uv configuration
+│       ├── cache_manager.py    # テスト結果のキャッシュ
+│       └── evaluator.py        # 評価ロジック
+├── pyproject.toml              # uv設定
 ├── README.md
 ├── uv.lock
-└── docs/ (generated)           # HTML reports after running reporter
+└── docs/ (generated)           # レポート生成後のHTML出力
 ```
 
-## Setup
+## セットアップ
 
-### Prerequisites
+### 前提条件
 
 - Python 3.11+
-- uv (Python package manager)
-- Google Cloud Project (for Google ADK)
+- uv（Pythonパッケージマネージャー）
+- Google Cloud Project（Google ADK用）
 - Google AI API Key
 
-### Installation
+### インストール手順
 
-1. Clone the repository
+1. リポジトリをクローン
 
 ```bash
 git clone <repository-url>
 cd leaderboard-sample
 ```
 
-2. Install dependencies
+2. 依存関係をインストール
 
 ```bash
 uv sync
 ```
 
-3. (Optional) Install development tooling and enable commit hooks
+3. （任意）開発用ツールのインストールとコミットフックの有効化
 
 ```bash
 uv sync --group dev
 pre-commit install
 ```
 
-4. Set Google AI API Key
+4. Google AI API Key を設定
+
 ```bash
 export "GOOGLE_API_KEY=your_api_key_here"
 ```
 
+または direnv を使う場合:
 
-or Use direnv.
 ```bash
 echo "GOOGLE_API_KEY=your_api_key_here" > .env
 ```
 
-## Usage
+## 使い方
 
-### 1. Create an agent
+### 1. エージェントを作成
 
-Create a new agent file in the `agents/` directory.
+`agents/` ディレクトリに新しいエージェントファイルを作成します。
 
 ```python
 from google.adk.agents.llm_agent import Agent
@@ -97,64 +98,64 @@ from google.adk.agents.llm_agent import Agent
 root_agent = Agent(
     model='gemini-2.5-flash',
     name='my_agent',
-    description="Agent description",
-    instruction="Agent instructions",
+    description="エージェントの説明",
+    instruction="エージェントの指示",
     tools=[],
 )
 ```
 
-### 2. Create benchmark tasks
+### 2. ベンチマークタスクを作成
 
-Create task definitions in the `benchmarks/` directory.
+`benchmarks/` ディレクトリにタスク定義を追加します。
 
 ```json
 {
-  "name": "Task name",
-  "description": "Task description",
-  "query": "Query for the agent",
-  "expected_answer": "Expected answer"
+  "name": "タスク名",
+  "description": "タスクの説明",
+  "query": "エージェントへのクエリ",
+  "expected_answer": "期待する回答"
 }
 ```
 
-Each task automatically uses its filename (without the `.json` extension) as the identifier, so you can omit the `id` field unless you need a custom value.
+各タスクはファイル名（`.json`拡張子を除く）が自動的に識別子として使われます。カスタムIDが必要な場合を除き、`id` フィールドは省略できます。
 
-### 3. Run benchmarks
+### 3. ベンチマークを実行
 
 ```bash
 uv run python src/runner.py
 ```
 
-If you omit `--agent`, the runner executes every available agent directory.
+`--agent` を省略すると、利用可能なすべてのエージェントディレクトリを実行します。
 
-To run benchmarks for a single agent directory, pass its name with `--agent`:
+特定のエージェントディレクトリのみを実行する場合は、`--agent` にディレクトリ名を渡します。
 
 ```bash
 uv run python src/runner.py --agent baseline
 ```
 
-Each agent's latest results are saved to `results/<agent_name>.json`.
+各エージェントの最新結果は `results/<agent_name>.json` に保存されます。
 
-#### Caching for Cost Optimization
+#### コスト最適化のためのキャッシュ
 
-The benchmark runner automatically caches test results based on file hashes. This significantly reduces token costs by only re-running tests when agent or benchmark files change.
+ベンチマークランナーはファイルハッシュに基づいてテスト結果を自動的にキャッシュします。エージェントやベンチマークファイルが変更された場合のみ再実行されるため、トークンコストを大幅に削減できます。
 
-**How it works:**
-- Each agent file's hash is computed and stored with test results
-- Each benchmark task's hash is also tracked
-- On subsequent runs, cached results are used if files haven't changed
-- Only modified agents are re-tested
+**仕組み:**
+- 各エージェントファイルのハッシュを計算し、テスト結果と一緒に保存
+- 各ベンチマークタスクのハッシュも追跡
+- 次回以降、ファイルが変わらなければキャッシュ結果を利用
+- 変更されたエージェントのみを再テスト
 
-**Cache commands:**
+**キャッシュ関連コマンド:**
 
 ```bash
-# Default run (uses cached results when available)
+# デフォルト実行（キャッシュがあれば利用）
 uv run python src/runner.py
 
-# Ignore cached results (force all tests while updating the cache)
+# キャッシュを無視して全テストを実行（キャッシュを更新）
 uv run python src/runner.py --ignore-cache
 ```
 
-**Example output:**
+**実行例:**
 ```
 Found 4 agents and 5 benchmark tasks
 Cache enabled: 15 cached results available
@@ -169,83 +170,61 @@ Cache Statistics:
   New executions: 2/5 (40.0%)
 ```
 
-Cached data now lives in the per-agent result files under `results/`. Each JSON file
-stores the agent/benchmark hashes for every task so unchanged combinations are safely
-skipped.
+キャッシュデータは `results/` 配下のエージェントごとの結果ファイルに保存されます。各JSONファイルにはエージェント／ベンチマークのハッシュが保存され、変更のない組み合わせは安全にスキップされます。
 
-### 4. Generate HTML report
+### 4. HTMLレポートを生成
 
 ```bash
 uv run python src/reporter.py
 ```
 
-By default the reporter aggregates every `results/*.json` file and writes the HTML to
-`docs/index.html`.
+デフォルトでは、すべての `results/*.json` を集計し、`docs/index.html` にHTMLを書き出します。
 
-### 5. View report locally
+### 5. ローカルでレポートを閲覧
 
 ```bash
 python -m http.server 8000 --directory docs
 ```
 
-> **Note:** The `docs/` directory is created when you run `uv run python src/reporter.py`. If it does not exist yet, generate the report first.
+> **Note:** `docs/` ディレクトリは `uv run python src/reporter.py` 実行時に生成されます。存在しない場合は先にレポートを生成してください。
 
-Open `http://localhost:8000` in your browser.
+ブラウザで `http://localhost:8000` を開きます。
 
-## GitHub Pages Deployment
+## GitHub Pages へのデプロイ
 
-1. Go to repository Settings > Pages
-2. Set Source to "Deploy from a branch"
-3. Set Branch to `main` (or your branch) and folder to `/docs`
-4. The report will be published at `https://<username>.github.io/<repository>/`
+1. リポジトリの Settings > Pages を開く
+2. Source を「Deploy from a branch」に設定
+3. Branch を `main`（または任意のブランチ）、フォルダを `/docs` に設定
+4. `https://<username>.github.io/<repository>/` で公開されます
 
-## GitHub Actions Integration
+## GitHub Actions 連携
 
-Automated benchmarking is provided via `.github/workflows/bench-report.yml`.
-The workflow runs on pushes to the `main` branch and can also be triggered
-manually. Make sure to configure the `GOOGLE_API_KEY` secret so the benchmark
-run can access the Google AI APIs. The workflow performs the following steps:
+自動ベンチマークは `.github/workflows/bench-report.yml` で提供されます。
+このワークフローは `main` ブランチへのプッシュ時、または手動で実行できます。ベンチマーク実行で Google AI API にアクセスできるよう、`GOOGLE_API_KEY` シークレットを設定してください。ワークフローの手順は次のとおりです。
 
-1. Checks out the repository
-2. Installs dependencies with `uv`
-3. Runs the benchmark suite (`src/runner.py`)
-4. Generates the HTML report (`src/reporter.py`)
-5. Publishes the contents of `docs/` to GitHub Pages using
-   `peaceiris/actions-gh-pages`
+1. リポジトリをチェックアウト
+2. `uv` で依存関係をインストール
+3. ベンチマークスイートを実行（`src/runner.py`）
+4. HTMLレポートを生成（`src/reporter.py`）
+5. `docs/` の内容を `peaceiris/actions-gh-pages` を使って GitHub Pages に公開
 
-Update the workflow if you need to change the trigger conditions or customize
-the deployment behaviour.
+トリガー条件の変更やデプロイ方法のカスタマイズが必要な場合は、ワークフローを編集してください。
 
-## Evaluation Metrics
+## 評価指標
 
-Currently supported:
+現在サポートしている指標:
 
-- Correct/Incorrect (case-insensitive substring matching against the expected answer)
-- Execution time
-- Token count (input/output averages shown in the report)
+- 正誤判定（期待する回答に対する大文字小文字を区別しない部分一致）
+- 実行時間
+- トークン数（入出力の平均をレポートに表示）
 
-## Customization
+## カスタマイズ
 
-### Custom evaluation logic
+### 評価ロジックの変更
 
-Edit `evaluate_result()` in `src/services/evaluator.py`.
+`src/services/evaluator.py` の `evaluate_result()` を編集してください。
 
-### Custom HTML template
+### HTMLテンプレートの変更
 
-Edit `src/templates/leaderboard.html`.
+`src/templates/leaderboard.html` を編集してください。
 
-## Troubleshooting
-
-### Google ADK not found
-
-```bash
-uv add google-adk
-```
-
-### API Key error
-
-Check that `.env` file contains valid Google AI API Key.
-
-## License
-
-MIT License
