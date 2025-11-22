@@ -49,8 +49,7 @@ AIエージェントのベンチマークとリーダーボードを構築・運
 
 - Python 3.11+
 - uv（Pythonパッケージマネージャー）
-- Google Cloud Project（Google ADK用）
-- Google AI API Key
+- Google AI API Key（Google AI Studio などで取得可能、専用の GCP プロジェクトは不要）
 
 ### インストール手順
 
