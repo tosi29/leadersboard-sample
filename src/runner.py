@@ -145,11 +145,24 @@ class BenchmarkRunner:
                             if event_prompt_tokens:
                                 prompt_tokens += event_prompt_tokens
 
+                            # TODO toolUsePromptTokenCountは入力に加算？（要精査）
+                            event_tool_use_prompt_tokens = getattr(
+                                usage_metadata, "tool_use_prompt_token_count", None
+                            )
+                            if event_tool_use_prompt_tokens:
+                                prompt_tokens += event_tool_use_prompt_tokens
+
                             event_candidates_tokens = getattr(
                                 usage_metadata, "candidates_token_count", None
                             )
                             if event_candidates_tokens:
                                 candidates_tokens += event_candidates_tokens
+
+                            event_thoughts_tokens = getattr(
+                                usage_metadata, "thoughts_token_count", None
+                            )
+                            if event_thoughts_tokens:
+                                candidates_tokens += event_thoughts_tokens
 
                         if hasattr(event, "content") and event.content:
                             if isinstance(event.content, str):
