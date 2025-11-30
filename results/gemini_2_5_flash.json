@@ -6,14 +6,14 @@
       "task_name": "簡単な計算",
       "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
       "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
-      "timestamp": "2025-11-15 01:25:22",
+      "timestamp": "2025-12-01 01:04:50",
       "result": {
         "correct": true,
-        "execution_time": 4.657102823257446,
+        "execution_time": 1.3197948932647705,
         "agent_output": "26",
         "expected_answer": "26",
         "input_tokens": 62,
-        "output_tokens": 2,
+        "output_tokens": 55,
         "error": null
       }
     },
@@ -21,14 +21,14 @@
       "task_name": "やや複雑な計算",
       "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
       "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
-      "timestamp": "2025-11-15 01:25:22",
+      "timestamp": "2025-12-01 01:04:50",
       "result": {
         "correct": false,
-        "execution_time": 2.686300039291382,
-        "agent_output": "149469507987",
+        "execution_time": 1.3029260635375977,
+        "agent_output": "149463777567",
         "expected_answer": "149462580267",
         "input_tokens": 71,
-        "output_tokens": 12,
+        "output_tokens": 56,
         "error": null
       }
     },
@@ -36,14 +36,14 @@
       "task_name": "因数分解（3桁）",
       "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
       "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
-      "timestamp": "2025-11-15 01:25:22",
+      "timestamp": "2025-12-01 01:04:50",
       "result": {
         "correct": true,
-        "execution_time": 4.955046892166138,
+        "execution_time": 3.305450916290283,
         "agent_output": "23,43",
         "expected_answer": "23,43",
         "input_tokens": 74,
-        "output_tokens": 5,
+        "output_tokens": 525,
         "error": null
       }
     },
@@ -51,14 +51,14 @@
       "task_name": "因数分解（10桁）",
       "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
       "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
-      "timestamp": "2025-11-15 01:50:08",
+      "timestamp": "2025-12-01 01:04:50",
       "result": {
         "correct": false,
-        "execution_time": 16.023899793624878,
-        "agent_output": "484228009 を因数分解すると、以下のようになります。\n\n7,13,23,43,47,53",
+        "execution_time": 59.583569049835205,
+        "agent_output": "484228009を因数分解すると、以下のようになります。\n\nまず、√484228009 を計算すると、約 22005.18 となります。したがって、因数は22005以下の素数である可能性があります。\n\n試行錯誤の結果、この数字は2つの素数の積であることが判明しました。\n484228009 = 21991 × 22019\n\nそれぞれの数字が素数であることを確認します。\n*   **21991**: √21991 は約 148.29 です。148以下の素数で割り切れるか確認すると、割り切れる素数は見つかりません。したがって、21991は素数です。\n*   **22019**: √22019 は約 148.38 です。148以下の素数で割り切れるか確認すると、割り切れる素数は見つかりません。したがって、22019は素数です。\n\nしたがって、484228009の素因数分解は21991と22019です。\n小さい順にコンマ区切りで回答します。\n\n21991,22019",
         "expected_answer": "15077,32117",
         "input_tokens": 80,
-        "output_tokens": 36,
+        "output_tokens": 14196,
         "error": null
       }
     },
@@ -66,14 +66,14 @@
       "task_name": "検索タスク",
       "agent_hash": "33d83158d390717385a7b51640618f1b15c01d17ef04b2bdbdfa6e3888cb0779",
       "benchmark_hash": "c6f8d9dd366f4d52144a1fa089e8512a9daf65b0fccb12e255f11833b599fd2b",
-      "timestamp": "2025-11-15 01:25:22",
+      "timestamp": "2025-12-01 01:04:50",
       "result": {
         "correct": false,
-        "execution_time": 9.213018894195557,
-        "agent_output": "630兆円",
+        "execution_time": 10.600425004959106,
+        "agent_output": "621.1兆円",
         "expected_answer": "609",
         "input_tokens": 64,
-        "output_tokens": 5,
+        "output_tokens": 1725,
         "error": null
       }
     }
@@ -84,5 +84,5 @@
     "incorrect": 3,
     "errors": 0
   },
-  "last_updated": "2025-11-15 01:50:08"
+  "last_updated": "2025-12-01 01:04:50"
 }

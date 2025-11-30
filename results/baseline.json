@@ -6,10 +6,10 @@
       "task_name": "簡単な計算",
       "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
       "benchmark_hash": "c3a29136209bb546ffe07ed7624bd7ea1d2b89932de91af55b8581637a73ccfb",
-      "timestamp": "2025-11-15 02:22:42",
+      "timestamp": "2025-12-01 01:04:50",
       "result": {
         "correct": true,
-        "execution_time": 0.7404639720916748,
+        "execution_time": 0.8766870498657227,
         "agent_output": "26",
         "expected_answer": "26",
         "input_tokens": 53,
@@ -21,11 +21,11 @@
       "task_name": "やや複雑な計算",
       "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
       "benchmark_hash": "9a1e84294aa87ddc87373b19b0602e943057d48ae3c99a6a3aa1cb78c20b2b18",
-      "timestamp": "2025-11-15 02:22:42",
+      "timestamp": "2025-12-01 01:04:50",
       "result": {
         "correct": false,
-        "execution_time": 0.9337899684906006,
-        "agent_output": "149492770496",
+        "execution_time": 1.076357126235962,
+        "agent_output": "149485878256",
         "expected_answer": "149462580267",
         "input_tokens": 62,
         "output_tokens": 12,
@@ -36,14 +36,14 @@
       "task_name": "因数分解（3桁）",
       "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
       "benchmark_hash": "d3b122871b0f97b798550e3481ca8f438ee88a1de0d322636f324bf81329a549",
-      "timestamp": "2025-11-15 02:22:42",
+      "timestamp": "2025-12-01 01:04:50",
       "result": {
         "correct": false,
-        "execution_time": 0.7176418304443359,
-        "agent_output": "989 = 23 × 43",
+        "execution_time": 0.7128231525421143,
+        "agent_output": "2, 7, 71",
         "expected_answer": "23,43",
         "input_tokens": 65,
-        "output_tokens": 11,
+        "output_tokens": 8,
         "error": null
       }
     },
@@ -51,14 +51,14 @@
       "task_name": "因数分解（10桁）",
       "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
       "benchmark_hash": "3bb8ad826149a8de619c6603e21dd5bd10bf767620fab8013178c046627a99e1",
-      "timestamp": "2025-11-15 02:22:42",
+      "timestamp": "2025-12-01 01:04:50",
       "result": {
         "correct": false,
-        "execution_time": 1.1043720245361328,
-        "agent_output": "2, 3, 7, 11, 13, 31, 67, 101",
+        "execution_time": 1.0814697742462158,
+        "agent_output": "2, 3, 7, 11, 13, 17, 23, 43",
         "expected_answer": "15077,32117",
         "input_tokens": 71,
-        "output_tokens": 28,
+        "output_tokens": 27,
         "error": null
       }
     },
@@ -66,14 +66,14 @@
       "task_name": "検索タスク",
       "agent_hash": "f66d6318be9525b578c6e4c6ade432202c526ecdb9298ce27f016f4e1c05461f",
       "benchmark_hash": "c6f8d9dd366f4d52144a1fa089e8512a9daf65b0fccb12e255f11833b599fd2b",
-      "timestamp": "2025-11-15 02:22:42",
+      "timestamp": "2025-12-01 01:04:50",
       "result": {
         "correct": false,
-        "execution_time": 1.010310173034668,
-        "agent_output": "2024年の名目GDPの予測値は、内閣府の「中長期の経済財政に関する試算」（令和5年1月）によると、**619.8兆円**です。",
+        "execution_time": 0.8827340602874756,
+        "agent_output": "1000兆円",
         "expected_answer": "609",
         "input_tokens": 55,
-        "output_tokens": 47,
+        "output_tokens": 6,
         "error": null
       }
     }
@@ -84,5 +84,5 @@
     "incorrect": 4,
     "errors": 0
   },
-  "last_updated": "2025-11-15 02:22:42"
+  "last_updated": "2025-12-01 01:04:50"
 }
